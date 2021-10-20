@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import Router from "./Router";
 
 function App () {
+    const [isAuthorized, setIsAuthorized] = useState(false);
+
     return (
-        <Router />
+        <Router isAuthorized={isAuthorized} />
     )
 }
 
