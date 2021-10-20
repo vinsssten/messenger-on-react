@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'YandexSans';
+    src: url("/src/public/fonts/YandexSansDisplay-Bold.ttf") format('ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'YandexSans';
+    src: url("/src/public/fonts/YandexSansDisplay-Regular.ttf") format('ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'YandexSans';
+    src: url("/src/public/fonts/YandexSansDisplay-Light.ttf") format('ttf');
+    font-weight: lighter;
+}
