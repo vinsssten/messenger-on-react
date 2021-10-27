@@ -1,0 +1,26 @@
+.mainPage_Container {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 100px; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        "Header"
+        "Body";
+}
+
+.mainPage_Header {
+    grid-area: Header;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background-color: #b0f3f3dc;
+    font-family: 'Aeonik';
+    font-weight: bold;
+    font-size: 62px;
+}

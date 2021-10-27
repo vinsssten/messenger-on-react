@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 function RedirectPath ({isAuthorized}) {
     if (isAuthorized) {
         return (
-            <Redirect path='/' to='/main' />
+            <Redirect path='/' to='/mainpage' />
         )
     } else {
         return (
