@@ -22,7 +22,7 @@ function LoginPage (props) {
     }
 
     function loginClick (event) {
-        
+        console.log(username, password)
     }
 
     function registerClick (event) {

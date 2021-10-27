@@ -1,0 +1,47 @@
+.mainPage_Container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 0.1fr 1fr; 
+    gap: 5px 0px; 
+    grid-template-areas: 
+        "Header Header Header"
+        "mainPage_LS mainPage_Content mainPage_RS"; 
+}
+
+.mainPage_Header { 
+    grid-area: Header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b0f3f3dc;
+    color: white;
+    font-family: 'Aeonik';
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.mainPage_Content {
+    grid-area: mainPage_Content;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.mainPage_ConnectionInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    background-color: #c6f5f58e;
+    border: #41f0f0dc 2px dashed;
+    border-radius: 10px;
+}
+
+.mainPage_LS { grid-area: mainPage_LS; }
+.mainPage_RS { grid-area: mainPage_RS; }
