@@ -1,0 +1,19 @@
+.mainPage_Body {
+    display: grid; 
+    grid-template-columns: 1fr 1.5fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "Body-LS Body-Content Body-RS"; 
+    grid-area: Body; 
+}
+
+.mainPage_Body-Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: Body-Content;
+}
+
+.Body-LS { grid-area: Body-LS; }
+.Body-RS { grid-area: Body-RS; }
