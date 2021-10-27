@@ -1,35 +1,28 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+const creatingSocketID = require("./socketEvents/creatingSessionID");
+
 const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, { cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+} });
 
-const authRouter = require('./modules/authRouter')
+io.on("connection", (socket) => {
+    console.log('connection', socket.id);
 
-const port = 8080;
+    socket.emit('userID', creatingSocketID(socket));
 
-app.use("/", function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+    socket.on('disconnect', data => {
+        console.log('disconnected with:', data)
+    })
 });
 
-app.use(express.json());
+io.on('uncaughtException', (exception) => {
+    // handle or ignore error
+    console.log(exception);
+});
 
-app.use('/auth', authRouter);
-
-app.get('/', (req, res) => {
-    res.send('Hello, User!');
-})
-
-const start = async () => {
-    try {
-        await mongoose.connect('mongodb+srv://vinsssten:794613qwe@cluster0.hxlvs.mongodb.net/messenger-on-react?retryWrites=true&w=majority')
-
-        app.listen(port, () => {
-            console.log(`server started at http://localhost:${port}`);
-        })
-    } catch (e) {
-        console.log(e)
-    }
-}
-
-start();
+httpServer.listen(8080);
