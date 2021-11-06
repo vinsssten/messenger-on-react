@@ -1,5 +1,8 @@
-import react, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import './MainPage.css'
+
+import LoadingCard from "./elements/LoadingConnection";
+import ConnectedCard from "./elements/ConnectedCard";
 
 import useSocket from "../../lib/hooks/useSocket";
 
@@ -13,29 +16,16 @@ function MainPage (props) {
     useEffect(() => {
         socketConnect();
     }, [])
-
+    
     if (isLoadingSocket) {
         return (
-            <div className="mainPage_Container">
-                <div className="mainPage_Header">Messenger on React</div>
-                <div className="mainPage_Content">
-                    <div className="mainPage_ConnectionInfo">
-                        <h1>Loading...</h1>
-                    </div>
-                </div>
-            </div>
+            <LoadingCard />
         )
-        
     } else {
         return (
-            <div className="mainPage_Container">
-                <div className="mainPage_Header">Messenger on React</div>
-                <div className="mainPage_Content">
-                    <div className="mainPage_ConnectionInfo">
-                        Your ID : {sessionID}
-                    </div>
-                </div>
-            </div>
+            <ConnectedCard
+                sessionID={sessionID}
+            />
         )
     }
 }

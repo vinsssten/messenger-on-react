@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #b0f3f3dc;
+    background-color: #6ce7e7dc;
     color: white;
     font-family: 'Aeonik';
     font-weight: bold;
@@ -36,11 +36,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 300px;
     width: 100%;
     background-color: #c6f5f58e;
     border: #41f0f0dc 2px dashed;
     border-radius: 10px;
+}
+
+.mainPage_SessionID {
+    font-family: 'Aeonik';
+    font-weight: bold;
+    font-size: 32px;
+    color: #377c7c;
+}
+
+.mainPage_HintText {
+    font-family: 'Aeonik';
+    font-weight: normal;
+    font-size: 14px;
+    color: #597272;
+    text-align: center;
 }
 
 .mainPage_LS { grid-area: mainPage_LS; }
