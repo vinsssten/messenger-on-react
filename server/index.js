@@ -10,19 +10,25 @@ const io = new Server(httpServer, { cors: {
     methods: ["GET", "POST"]
 } });
 
-io.on("connection", (socket) => {
-    console.log('connection', socket.id);
+let connectedUsers = new Map();
 
-    socket.emit('userID', creatingSocketID(socket));
+io.on("connection", (socket) => {
+    console.log('user connected', socket.id);
+
+    socket.emit('userID', creatingSocketID(socket, connectedUsers));
+
+    console.log('connected users', connectedUsers);
 
     socket.on('disconnect', data => {
-        console.log('disconnected with:', data)
+        connectedUsers.delete(socket.id)    
+        console.log('user disconnect:', socket.id);
+        console.log('connected users:', connectedUsers)
     })
 });
 
 io.on('uncaughtException', (exception) => {
     // handle or ignore error
-    console.log(exception);
+    console.log('uncaughtException', exception);
 });
 
 httpServer.listen(8080);

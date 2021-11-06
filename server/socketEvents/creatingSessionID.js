@@ -1,10 +1,10 @@
-function creatingSocketID (socket) {
-    const id = randomID();
-    socket.sessionID = id;
+function creatingSocketID (socket, users) {
+    const socketId = socket.id;
+    const userId = randomID();
 
-    console.log('a user with an ID is assigned an ID session:', id)
+    users.set(socketId, userId)
 
-    return id
+    return userId
 }
 
 function randomID () {
