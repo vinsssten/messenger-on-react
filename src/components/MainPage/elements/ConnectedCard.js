@@ -2,6 +2,7 @@ import React from "react";
 import '../MainPage.css'
 
 import MainCardTemplate from "../MainCardTemplate";
+import ActionButtonMainCard from "./ActionButtonMainCard";
 
 function ConnectedCard ({sessionID}) {
 
@@ -15,6 +16,14 @@ function ConnectedCard ({sessionID}) {
                 Tell this ID to your friend so that he 
                 can send a request to create a chat
             </div>
+            <ActionButtonMainCard
+                action={() => console.log('click')}>
+                    Start a chat!
+            </ActionButtonMainCard>
+            <ActionButtonMainCard
+                action={() => console.log('click')}>
+                    Find a random companion
+            </ActionButtonMainCard>
         </MainCardTemplate>
     )
 }

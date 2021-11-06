@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 import './MainPage.css'
 
 import LoadingCard from "./elements/LoadingConnection";
@@ -7,7 +7,7 @@ import ConnectedCard from "./elements/ConnectedCard";
 import useSocket from "../../lib/hooks/useSocket";
 
 function MainPage (props) {
-    const {socket, isLoadingSocket , sessionID, socketConnect} = useSocket() 
+    const {isLoadingSocket , sessionID, socketConnect} = useSocket() 
 
     useEffect(() => {
         document.title = "MoR: MainPage"
@@ -16,7 +16,7 @@ function MainPage (props) {
     useEffect(() => {
         socketConnect();
     }, [])
-    
+
     if (isLoadingSocket) {
         return (
             <LoadingCard />
