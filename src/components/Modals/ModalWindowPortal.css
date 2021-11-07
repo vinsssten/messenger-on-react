@@ -1,0 +1,55 @@
+:root{
+    --modalWidth: 500px
+}
+
+.modalWindow {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: calc(50vw - calc(var(--modalWidth) / 2));
+    margin-top: 10vh;
+    padding: 20px 10px 20px 10px;
+    width: var(--modalWidth);
+    height:  auto;
+    background-color: #98e9e9dc;
+    z-index: 900;
+}
+
+.modalWindow_Background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5d5d5daf;
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+}
+
+.modalWindow_MainButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 50%;
+    height: 45px;
+    border-radius: 10px;
+    font-family: 'Aeonik';
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-color: #319797;
+    box-shadow: 0px 10px 10px -9px #357c7c;
+    transition: 100ms cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: pointer;
+}
+.modalWindow_MainButton:hover {
+    background-color: #277777;
+    border-radius: 0px;
+}
+.modalWindow_MainButton:active {
+    background-color: #216464;
+    transform: scale(0.98);
+}

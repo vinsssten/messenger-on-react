@@ -10,19 +10,20 @@ const io = new Server(httpServer, { cors: {
     methods: ["GET", "POST"]
 } });
 
-let connectedUsers = new Map();
+let connectedUsersList = new Map();
+let activeDialogues = [];
 
 io.on("connection", (socket) => {
     console.log('user connected', socket.id);
 
-    socket.emit('userID', creatingSocketID(socket, connectedUsers));
+    socket.emit('userID', creatingSocketID(socket, connectedUsersList));
 
-    console.log('connected users', connectedUsers);
+    console.log('connected users', connectedUsersList);
 
     socket.on('disconnect', data => {
-        connectedUsers.delete(socket.id)    
+        connectedUsersList.delete(socket.id)    
         console.log('user disconnect:', socket.id);
-        console.log('connected users:', connectedUsers)
+        console.log('connected users:', connectedUsersList)
     })
 });
 

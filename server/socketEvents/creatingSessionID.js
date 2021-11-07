@@ -2,7 +2,10 @@ function creatingSocketID (socket, users) {
     const socketId = socket.id;
     const userId = randomID();
 
-    users.set(socketId, userId)
+    users.set(socketId, {
+        userId: userId,
+        isReadyToRandom: false
+    })
 
     return userId
 }
