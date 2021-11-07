@@ -7,15 +7,17 @@ import ConnectedCard from "./elements/ConnectedCard";
 import useSocket from "../../lib/hooks/useSocket";
 
 function MainPage (props) {
-    const {isLoadingSocket , sessionID, socketConnect} = useSocket() 
+    const {isLoadingSocket,isSocketConnected, sessionID, socketConnect} = useSocket();
 
     useEffect(() => {
-        document.title = "MoR: MainPage"
+        document.title = "MoR: MainPage";
     }, [])
 
     useEffect(() => {
-        socketConnect();
-    }, [])
+        if (isSocketConnected) {
+            socketConnect();
+        }
+    }, [isSocketConnected])
 
     if (isLoadingSocket) {
         return (
