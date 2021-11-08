@@ -17,6 +17,7 @@ function MainPage (props) {
         if (!isSocketConnected) {
             socketConnect();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSocketConnected])
 
     if (isLoadingSocket) {
