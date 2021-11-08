@@ -1,30 +1,35 @@
 import {useEffect} from "react";
 import './MainPage.css'
+import { useSelector, useDispatch } from "react-redux";
+
+import socketConnect from "../../lib/actionCreators/socketConnect";
 
 import LoadingCard from "./elements/LoadingConnection";
 import ConnectedCard from "./elements/ConnectedCard";
-
-import useSocket from "../../lib/hooks/useSocket";
-
 function MainPage (props) {
-    const {isLoadingSocket , sessionID, socketConnect} = useSocket() 
+    const {isSocketConnected, sessionId} = useSelector(state => state.socket)
+    const dispatch = useDispatch();
+
+    //TODO: Придумать как починить костыль явной передачи dispatch в функцию подключения к серверу
+    useEffect(() => {
+        if (!isSocketConnected) {
+            dispatch(socketConnect('Anonymous', dispatch))
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isSocketConnected])
 
     useEffect(() => {
-        document.title = "MoR: MainPage"
+        document.title = "MoR: MainPage";
     }, [])
 
-    useEffect(() => {
-        socketConnect();
-    }, [])
-
-    if (isLoadingSocket) {
+    if (!isSocketConnected) {
         return (
             <LoadingCard />
         )
     } else {
         return (
             <ConnectedCard
-                sessionID={sessionID}
+                sessionID={sessionId}
             />
         )
     }

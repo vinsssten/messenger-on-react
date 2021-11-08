@@ -12,7 +12,7 @@ function ConnectedCard ({sessionID}) {
         <>
             <MainCardTemplate>
                 <div className="mainPage_SessionID">
-                    Your ID : {sessionID}
+                    Your ID : {!sessionID? "Loading..." : sessionID}
                 </div>
                 <div className="mainPage_HintText">
                     Tell this ID to your friend so that he 
@@ -23,7 +23,7 @@ function ConnectedCard ({sessionID}) {
                         Start a chat!
                 </ActionButtonMainCard>
                 <ActionButtonMainCard
-                    action={() => console.log('click')}>
+                    action={() => alert('Is under construction')}>
                         Find a random companion
                 </ActionButtonMainCard>
             </MainCardTemplate>

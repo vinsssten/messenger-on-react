@@ -2,6 +2,7 @@ const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const creatingSocketID = require("./socketEvents/creatingSessionID");
+const setUserNickname = require('./socketEvents/setUserNickname');
 
 const app = express();
 const httpServer = createServer(app);
@@ -15,10 +16,15 @@ let activeDialogues = [];
 
 io.on("connection", (socket) => {
     console.log('user connected', socket.id);
-
     socket.emit('userID', creatingSocketID(socket, connectedUsersList));
-
     console.log('connected users', connectedUsersList);
+
+    socket.on('setNickname', data => setUserNickname(data, connectedUsersList, socket.id))
+
+    socket.on('getUsers', () => {
+        console.log('req to get users');
+        socket.emit('getUsers', connectedUsersList)
+    })
 
     socket.on('disconnect', data => {
         connectedUsersList.delete(socket.id)    

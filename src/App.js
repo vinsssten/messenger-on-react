@@ -1,11 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import Router from "./Router";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App () {
-    const [isAuthorized, setIsAuthorized] = useState(true);
+    const isAuthorized = true
 
     return (
-        <Router isAuthorized={isAuthorized} />
+        <Provider store={store}>
+            <Router isAuthorized={isAuthorized} />
+        </Provider>
     )
 }
 
