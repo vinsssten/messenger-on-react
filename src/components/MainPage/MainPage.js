@@ -14,7 +14,7 @@ function MainPage (props) {
     }, [])
 
     useEffect(() => {
-        if (isSocketConnected) {
+        if (!isSocketConnected) {
             socketConnect();
         }
     }, [isSocketConnected])
