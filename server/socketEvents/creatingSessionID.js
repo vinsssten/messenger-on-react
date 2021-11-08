@@ -4,7 +4,8 @@ function creatingSocketID (socket, users) {
 
     users.set(socketId, {
         userId: userId,
-        isReadyToRandom: false
+        isReadyToRandom: false,
+        name: undefined
     })
 
     return userId

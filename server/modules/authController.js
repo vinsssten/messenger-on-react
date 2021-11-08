@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt  = require('jsonwebtoken');
 const {validationResult} = require('express-validator');
 
-const {secret} = require('./config');
+const {secret} = require('../modules/config');
 
 const generateAccessToken = (id, role) => {
     const payload = {

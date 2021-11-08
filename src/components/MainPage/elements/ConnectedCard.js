@@ -23,7 +23,7 @@ function ConnectedCard ({sessionID}) {
                         Start a chat!
                 </ActionButtonMainCard>
                 <ActionButtonMainCard
-                    action={() => console.log('click')}>
+                    action={() => alert('Is under construction')}>
                         Find a random companion
                 </ActionButtonMainCard>
             </MainCardTemplate>

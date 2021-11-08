@@ -3,7 +3,7 @@ import socketReducer from "./reducers/socketReducer";
 import testDataReducer from "./reducers/testDataReducer";
 
 const rootReducer = combineReducers({
-    socketReducer: socketReducer,
+    socket: socketReducer,
     testData: testDataReducer
 })
 

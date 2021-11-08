@@ -1,17 +1,17 @@
 const defaultState = {
     socket: null,
-    isConnected: false,
+    isSocketConnected: false,
     sessionId: null,
 }
 
 const socketReducer = (state = defaultState, action) => {
     switch (action.type) {
         case 'SET_SOCKET': 
-            return {...state, socket: action.socket}
-        case 'SET_ISCONNECTED':
-            return {...state, isConnected: action.isConnected}
-        case 'SET_SESSIONID': 
+            return {...state, socket: action.socket, isSocketConnected: action.isSocketConnected}
+        case 'SET_SESSIONID':
             return {...state, sessionId: action.sessionId}
+        case 'SOCKET_DISCONNECT':
+            return {...state, socket: action.socket, isSocketConnected: false, sessionId: null}
         default: 
             return state
     }
