@@ -11,6 +11,7 @@
     grid-template-areas: 
         "Header Header Header"
         "mainPage_LS mainPage_Content mainPage_RS"; 
+    overflow-y: hidden;
 }
 
 .mainPage_Header { 
@@ -23,7 +24,7 @@
     color: white;
     font-family: 'Aeonik';
     font-weight: bold;
-    font-size: 8vh;
+    font-size: 78px;
 }
 
 .mainPage_Content {

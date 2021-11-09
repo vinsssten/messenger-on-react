@@ -6,43 +6,7 @@ const notifications = [{
     sender: 123123123,
     nickname: "admin",
     text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-},]
+}]
 
 function NotificationCard () {
     
