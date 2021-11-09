@@ -1,14 +1,15 @@
 const defaultState = {
-    notificationList: [{
-        sender: 123123123,
-        nickname: "admin",
-        text: "Want to start chat with you!"
-    }],
+    notificationList: [],
     chatIsActive: false,
 }
 
 const appStateReducer = (state = defaultState, action) => {
     switch (action.type) {
+        case 'ADD_NOTIFICATION':
+            return {...state, notificationList: [...state.notificationList, {
+                sender: action.userReqId,
+                nickname: action.nickname}]
+            }
         default:
             return state
     }

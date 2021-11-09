@@ -2,7 +2,9 @@ const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const creatingSocketID = require("./socketEvents/creatingSessionID");
+const findDialogueById = require("./socketEvents/findDialogueById");
 const setUserNickname = require('./socketEvents/setUserNickname');
+
 
 const app = express();
 const httpServer = createServer(app);
@@ -21,6 +23,8 @@ io.on("connection", (socket) => {
 
     socket.on('setUsername', data => setUserNickname(data, connectedUsersList, socket.id))
 
+    socket.on('findDialogueById', searchedId => findDialogueById(io, socket, searchedId, connectedUsersList, activeDialogues))
+
     socket.on('getUsers', () => {
         const convertedMap = [...connectedUsersList].map(([name, value]) => ({ name, value }))
         console.log('req to get users');
@@ -30,7 +34,7 @@ io.on("connection", (socket) => {
     socket.on('disconnect', data => {
         connectedUsersList.delete(socket.id)    
         console.log('user disconnect:', socket.id);
-        console.log('connected users:', connectedUsersList)
+        // console.log('connected users:', connectedUsersList)
     })
 });
 

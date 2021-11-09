@@ -1,22 +1,17 @@
+import { useSelector } from 'react-redux'
 import './NotificationCard.css'
 
 import NotificationList from './NotificationList'
 
-const notifications = [{
-    sender: 123123123,
-    nickname: "admin",
-    text: "Want to start chat with you!"
-}]
-
 function NotificationCard () {
-    
+    const notificationList = useSelector(state => state.app.notificationList)
 
     return (
         <div className="mainPage_NotificationCardContainer">
             <div className="mainPage_NotificationCard">
-                <div className="notificationCard_Header">Notification 🔔</div>
+                <div className="notificationCard_Header">Notifications 🔔</div>
                 <NotificationList
-                    notificationArray={notifications}/>
+                    notificationArray={notificationList}/>
             </div>
         </div>
     )
