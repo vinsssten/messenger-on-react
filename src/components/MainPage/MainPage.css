@@ -32,65 +32,10 @@
     align-items: flex-start;
 }
 
-.mainPage_ConnectionInfo {
+.mainPage_LS { 
+    grid-area: mainPage_LS; 
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 300px;
-    width: 100%;
-    background-color: #c6f5f58e;
-    border: #41f0f0dc 2px dashed;
-    border-radius: 10px;
+    align-items: flex-start;
 }
-
-.mainPage_SessionID {
-    font-family: 'Aeonik';
-    font-weight: bold;
-    font-size: 32px;
-    color: #377c7c;
-}
-
-.mainPage_HintText {
-    font-family: 'Aeonik';
-    font-weight: normal;
-    font-size: 14px;
-    color: #597272;
-    text-align: center;
-}
-
-.mainPage_MainButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-    width: 60%;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #80e2e2;
-    font-family: 'Aeonik';
-    font-weight: normal;
-    font-size: 24px;
-    border-radius: 10px;
-    border: #61b8b8dc 1px dashed;
-    color: white;
-    cursor: pointer;
-    transition: 300ms ease-in-out;
-    user-select: none;
-}
-.mainPage_MainButton:hover{
-    transition: 200ms forwards ease-in-out;
-    background-color: #76e6e6;
-    transform: scale(1.03);
-    color: white;
-    /* transform: scale(1.03); */
-}
-.mainPage_MainButton:active{
-    transition: 200ms forwards ease-in-out;
-    border: #61b8b8dc 1px dashed;
-    background-color: #76e6e6;
-    transform: scale(1);
-}
-
-.mainPage_LS { grid-area: mainPage_LS; }
 .mainPage_RS { grid-area: mainPage_RS; }

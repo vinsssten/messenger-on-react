@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route} from "react-router-dom"
 
 import RedirectPath from "./components/RedirectPath";
 import LoginPage from "./components/LoginPage/LoginPage";
-import MainPage from "./components/MainPage/MainPage";
+import SocketDispatcher from "./components/MainPage/SocketDispatcher";
 
 function Router ({isAuthorized}) {
 
@@ -14,7 +14,7 @@ function Router ({isAuthorized}) {
                     <LoginPage />
                 </Route> */}
                 <Route path='/mainpage'>
-                    <MainPage />
+                    <SocketDispatcher />
                 </Route>
                 <RedirectPath isAuthorized={isAuthorized} />
             </Switch>

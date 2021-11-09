@@ -1,13 +1,13 @@
 import React from "react";
 import '../MainPage.css'
 
-import MainCardTemplate from "../MainCardTemplate";
+import MainPage from "../MainPage";
 
 function LoadingCard () {
     return (
-        <MainCardTemplate>
+        <MainPage>
             <h1>Loading...</h1>
-        </MainCardTemplate>
+        </MainPage>
     )
 }
 

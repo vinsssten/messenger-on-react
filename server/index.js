@@ -19,11 +19,12 @@ io.on("connection", (socket) => {
     socket.emit('userID', creatingSocketID(socket, connectedUsersList));
     console.log('connected users', connectedUsersList);
 
-    socket.on('setNickname', data => setUserNickname(data, connectedUsersList, socket.id))
+    socket.on('setUsername', data => setUserNickname(data, connectedUsersList, socket.id))
 
     socket.on('getUsers', () => {
+        const convertedMap = [...connectedUsersList].map(([name, value]) => ({ name, value }))
         console.log('req to get users');
-        socket.emit('getUsers', connectedUsersList)
+        socket.emit('getUsers', convertedMap)
     })
 
     socket.on('disconnect', data => {

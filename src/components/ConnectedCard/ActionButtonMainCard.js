@@ -1,3 +1,5 @@
+import './ConnectedCard.css'
+
 function ActionButtonMainCard ({action, children}) {
     return (
         <div 
