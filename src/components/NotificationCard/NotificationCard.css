@@ -48,6 +48,18 @@
     padding: 15px 20px;
     background-color: #471d5cb2;
     border-radius: 10px;
+    animation: notificationBorn 250ms linear forwards;
+}
+
+@keyframes notificationBorn {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    
+    100% {
+        transform: scale(1);
+    }
 }
 
 .notificationCard_Notification-HeaderText, .notificationCard_Notification-Text {

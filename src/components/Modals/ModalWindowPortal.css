@@ -15,6 +15,17 @@
     height:  auto;
     background-color: #98e9e9dc;
     z-index: 900;
+    animation: modalWindowBorn 100ms linear forwards;
+}
+@keyframes modalWindowBorn {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .modalWindow_Background {
@@ -26,6 +37,15 @@
     background-color: #5d5d5daf;
     backdrop-filter: blur(3px);
     z-index: 1000;
+    animation: fadeInBackground 100ms linear forwards;
+}
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .modalWindow_MainButton {
