@@ -11,6 +11,7 @@
     grid-template-areas: 
         "Header Header Header"
         "mainPage_LS mainPage_Content mainPage_RS"; 
+    overflow-y: hidden;
 }
 
 .mainPage_Header { 
@@ -18,11 +19,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 5px;
     background-color: #6ce7e7dc;
     color: white;
     font-family: 'Aeonik';
     font-weight: bold;
-    font-size: 60px;
+    font-size: 78px;
 }
 
 .mainPage_Content {
@@ -38,4 +40,10 @@
     justify-content: center;
     align-items: flex-start;
 }
-.mainPage_RS { grid-area: mainPage_RS; }
+.mainPage_RS { 
+    grid-area: mainPage_RS; 
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
