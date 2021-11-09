@@ -3,15 +3,23 @@ import './FindCompanionModal.css'
 
 import ModalWindowPortal from '../ModalWindowPortal';
 import ButtonModal from '../ButtonModal';
+import { useSelector } from 'react-redux';
 
-function FindCompanionModal ({isActive, setIsActive}) {
+function FindCompanionModal ({sessionId, isActive, setIsActive}) {
     const [curIdInput, setCurIdInput] = useState(null);
+    const {socket, isSocketConnected} = useSelector(state => state.socket)
 
     function inputHandle (event) {
         const value = event.target.value;
         if (Number(value) || value === '') {
             console.log(Number(value))
             setCurIdInput(value)
+        }
+    }
+
+    function sendRequestToDialogue () {
+        if (socket && socket?.connected) {
+            socket.emit('findDialogueById', curIdInput)
         }
     }
 
@@ -31,7 +39,7 @@ function FindCompanionModal ({isActive, setIsActive}) {
                         maxLength={9}
                     />
                     <ButtonModal
-                        action={() => {console.log('click')}}>
+                        action={() => sendRequestToDialogue()}>
                         Send request to dialogue
                     </ButtonModal>
             </ModalWindowPortal>

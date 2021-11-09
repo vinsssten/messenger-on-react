@@ -8,6 +8,10 @@ import NotificationCard from '../NotificationCard/NotificationCard'
 
 function MainPage ({sessionId}) {
     const [isActiveFindModal, setIsActiveFindModal] = useState(false);
+    const [permissionToCloseModal, setPermissionToCloseModal] = useState(true);
+
+    // TODO: создать глобальное состояние, активен ли в данный момент чат
+    // и какие сообщения сейчас в чате, а так же верстку для окна с сообщениями
 
     return (
         <div className="mainPage_Container">
@@ -26,8 +30,11 @@ function MainPage ({sessionId}) {
                 <NotificationCard />
             </div>
             <FindCompanionModal 
+                sessionId={sessionId}
                 isActive={isActiveFindModal}
                 setIsActive={setIsActiveFindModal}
+                permissionToCloseModal={permissionToCloseModal}
+                setPermissionToCloseModal={setPermissionToCloseModal}
             />
         </div>
     )
