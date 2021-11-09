@@ -4,6 +4,7 @@ import './MainPage.css'
 import ConnectedCard from '../ConnectedCard/ConnectedCard'
 import FindCompanionModal from '../Modals/FindCompanionModal/FindCompanionModal'
 import NicknameInputCard from '../NicknameInputCard/NicknameInputCard'
+import NotificationCard from '../NotificationCard/NotificationCard'
 
 function MainPage ({sessionId}) {
     const [isActiveFindModal, setIsActiveFindModal] = useState(false);
@@ -22,7 +23,7 @@ function MainPage ({sessionId}) {
                 />
             </div>
             <div className="mainPage_RS">
-
+                <NotificationCard />
             </div>
             <FindCompanionModal 
                 isActive={isActiveFindModal}
