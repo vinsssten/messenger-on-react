@@ -4,7 +4,7 @@ const defaultState = {
         nickname: "admin",
         text: "Want to start chat with you!"
     }],
-    
+    chatIsActive: false,
 }
 
 const appStateReducer = (state = defaultState, action) => {
