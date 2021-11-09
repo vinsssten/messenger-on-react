@@ -8,6 +8,7 @@ import NotificationCard from '../NotificationCard/NotificationCard'
 
 function MainPage ({sessionId}) {
     const [isActiveFindModal, setIsActiveFindModal] = useState(false);
+    const [permissionToCloseModal, setPermissionToCloseModal] = useState(true);
 
     return (
         <div className="mainPage_Container">
@@ -28,6 +29,8 @@ function MainPage ({sessionId}) {
             <FindCompanionModal 
                 isActive={isActiveFindModal}
                 setIsActive={setIsActiveFindModal}
+                permissionToCloseModal={permissionToCloseModal}
+                setPermissionToCloseModal={setPermissionToCloseModal}
             />
         </div>
     )
