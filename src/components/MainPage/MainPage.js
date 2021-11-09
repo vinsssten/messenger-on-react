@@ -10,6 +10,10 @@ function MainPage ({sessionId}) {
     const [isActiveFindModal, setIsActiveFindModal] = useState(false);
     const [permissionToCloseModal, setPermissionToCloseModal] = useState(true);
 
+    //TODO: Добавить страницу, при неудачном подключении к серверу
+
+    //TODO: Добавить реконнект
+
     // TODO: создать глобальное состояние, активен ли в данный момент чат
     // и какие сообщения сейчас в чате, а так же верстку для окна с сообщениями
 

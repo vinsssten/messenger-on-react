@@ -3,6 +3,7 @@ import SingleNotification from './SingleNotificate'
 
 function NotificationList ({notificationArray}) {
 
+    // FIXME:Пофиксить отображения уведомлений в неправильном порядке
 
     return (
         <div className="notificationCard_Content">
