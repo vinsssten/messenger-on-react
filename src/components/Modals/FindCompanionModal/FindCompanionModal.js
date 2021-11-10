@@ -5,9 +5,9 @@ import ModalWindowPortal from '../ModalWindowPortal';
 import ButtonModal from '../ButtonModal';
 import { useSelector } from 'react-redux';
 
-function FindCompanionModal ({sessionId, isActive, setIsActive}) {
-    const [curIdInput, setCurIdInput] = useState(null);
-    const {socket, isSocketConnected} = useSelector(state => state.socket)
+function FindCompanionModal ({sessionId, isActive, setIsActive, permissionToCloseModal}) {
+    const [curIdInput, setCurIdInput] = useState('');
+    const {socket} = useSelector(state => state.socket)
 
     function inputHandle (event) {
         const value = event.target.value;
@@ -27,7 +27,8 @@ function FindCompanionModal ({sessionId, isActive, setIsActive}) {
         return (
             <ModalWindowPortal
                 isActive={isActive}
-                setIsActive={setIsActive}>
+                setIsActive={setIsActive}
+                permissionToCloseModal={permissionToCloseModal}>
                     <h1 className='findModalWindow_MainText mainFont'>Find your friend about Id</h1>
                     <h3 className='findModalWindow_AddittionalText mainFont'>Find out from your interlocutor his ID, and specify it below</h3>
                     <input

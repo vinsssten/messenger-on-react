@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import './NotificationCard.css'
 
 function ButtonsContainer ({sender}) {
-    const {socket, isSocketConnected} = useSelector(state => state.socket);
+    const {socket} = useSelector(state => state.socket);
 
     function acceptChat () {
         try {

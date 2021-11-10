@@ -7,7 +7,7 @@ function useNickname () {
     const [nicknameLocalStorage, setNicknameLocalStorage] = useState(null);
     const [isFirstGettingName, setIsFirstGettingName] = useState(true);
     const [isFirstSetName, setIsFirstSetName] = useState(true);
-    const socket = useSelector(state => state.socket.socket);
+    const {socket, isSocketConnected} = useSelector(state => state.socket);
     
     useEffect(() => {
         if (isFirstGettingName) {
@@ -44,7 +44,9 @@ function useNickname () {
 
     function setNicknameOnServer (name) {
         try {
-            socket.emit('setUsername', name);
+            if (isSocketConnected) {
+                socket.emit('setUsername', name);
+            }
         } catch (err) {
             console.log('error while set name', err)
         }
