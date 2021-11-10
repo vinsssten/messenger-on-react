@@ -1,9 +1,15 @@
+import reactDom from 'react-dom'
 import './ChatModal.css'
 
 function ChatModal () {
 
-    return (
-        <h1>ChatModal</h1>
+    return reactDom.createPortal (
+        <div className="chatModal_Background">
+            <div className="chatModal_MainContainer">
+                <h1>Chat Modal</h1>
+            </div>
+        </div>,
+        document.getElementById('root')
     )
 }
 
