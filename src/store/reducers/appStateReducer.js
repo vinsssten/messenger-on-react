@@ -1,6 +1,5 @@
 const defaultState = {
     notificationList: [],
-    chatIsActive: true,
 }
 
 const appStateReducer = (state = defaultState, action) => {

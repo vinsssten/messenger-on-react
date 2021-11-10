@@ -6,7 +6,7 @@ import InputCardChatModal from './components/InputCardChatModal';
 import MessageList from './components/MessageList';
 
 function ChatModal () {
-    const chatIsActive = useSelector(state => state.app.chatIsActive);
+    const chatIsActive = useSelector(state => state.chat.chatIsActive);
     const messageList = useSelector(state => state.chat.messageList);
 
     if (chatIsActive) {

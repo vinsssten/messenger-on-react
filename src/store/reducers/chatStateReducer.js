@@ -3,35 +3,26 @@ const date = new Date()
 const defaultState = {
     nickname: null,
     idCompanion: null,
+    chatIsActive: false,
     messageList: [{
         isClientMessage: true,
-        textMessage: "This is a system message 1",
-        time: `${date.getHours()}:${date.getMinutes()}`
-    },{
-        isClientMessage: true,
-        textMessage: "Lorem ipsum dolor sit amet 2",
-        time: `${date.getHours()}:${date.getMinutes()}`
-    },{
-        isClientMessage: false,
-        textMessage: "Hello world! 3",
-        time: `${date.getHours()}:${date.getMinutes()}`
-    },{
-        isClientMessage: false,
-        textMessage: "I am client! 4",
-        time: `${date.getHours()}:${date.getMinutes()}`
-    },{
-        isClientMessage: true,
-        textMessage: "Lorem ipsum dolor sit amet 5",
-        time: `${date.getHours()}:${date.getMinutes()}`
-    },{
-        isClientMessage: true,
-        textMessage: "Lorem ipsum dolor sit amet 6",
+        textMessage: `This is a system message, chat with the user ${this?.isClientMessage} started!` ,
         time: `${date.getHours()}:${date.getMinutes()}`
     }]
 }
 
 const chatStateReducer = (state = defaultState, action) => {
     switch (action.type) {
+        case 'CHAT_START':
+            return {...state, nickname: action.nickname, idCompanion: action.idCompanion, chatIsActive: true}
+        case 'CHAT_SHUTDOWN':
+            return {...state, nickname: null, idCompanion: null, chatIsActive: false, messageList: defaultState.messageList}
+        case 'RECEIVE_MESSAGE':
+            return {...state, messageList: [...state.messageList, {
+                isClientMessage: action.isClientMessage,
+                textMessage: action.textMessage,
+                time: action.time
+            }]}
         default:
             return state
     }
