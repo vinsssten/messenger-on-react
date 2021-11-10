@@ -12,9 +12,11 @@ function ChatModal () {
         return reactDom.createPortal (
                 <div className="chatModal_Background">
                     <div className="chatModal_MainContainer">
+                        <div className="chatModal_Header">Nickname (123123123)</div>
                         <MessageList 
                             messages={messageList}
                         />
+                        
                     </div>
                 </div>,
                 document.getElementById('root')

@@ -14,6 +14,10 @@
 }
 
 .chatModal_MainContainer {
+    display: grid; 
+    grid-template-columns: 1fr 1.2fr 0.8fr; 
+    grid-template-rows: 0.3fr 2.1fr 0.5fr; 
+    gap: 0px 0px;
     min-width: 30%;
     width: 30vw;
     height: 80vh;
@@ -21,6 +25,34 @@
     border-radius: 10px;
     backdrop-filter: blur(1px);
 }
+
+.chatModal_MessageList {
+    
+}
+
+.chatModal_Header {
+    grid-area: 1 / 1 / 2 / 4; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;    
+    width: 100%;
+    background-color: #ffffffdc;
+    font-family: 'Aeonik';
+    font-size: 24px;
+    border-radius: 10px 10px 0 0 ;
+    font-weight: bold;
+}
+
+.chatModal_MessageList-MessageLine { 
+    grid-area: 2 / 1 / 3 / 4; 
+
+}
+
+.InputZone { grid-area: 3 / 1 / 4 / 4; }
+
+.SendButton { grid-area: 3 / 3 / 4 / 4; }
+
 
 @media (max-width: 1300px) {
     .chatModal_MainContainer{
