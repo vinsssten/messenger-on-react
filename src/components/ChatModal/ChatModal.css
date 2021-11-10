@@ -10,6 +10,7 @@
     /* min-height: 650px; */
     background-color: #5d5d5daf;
     backdrop-filter: blur(3px);
+    z-index: 999;
 }
 
 .chatModal_MainContainer {
