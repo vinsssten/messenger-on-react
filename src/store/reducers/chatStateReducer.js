@@ -1,5 +1,6 @@
 const date = new Date()
 
+//TODO: Понять как праильно отобазить никнейм в первом сообщении
 const defaultState = {
     nickname: null,
     idCompanion: null,
@@ -14,7 +15,7 @@ const defaultState = {
 const chatStateReducer = (state = defaultState, action) => {
     switch (action.type) {
         case 'CHAT_START':
-            return {...state, nickname: action.nickname, idCompanion: action.idCompanion, chatIsActive: true}
+            return {...state, nickname: action.nickname, idCompanion: action.sessionId, chatIsActive: true}
         case 'CHAT_SHUTDOWN':
             return {...state, nickname: null, idCompanion: null, chatIsActive: false, messageList: defaultState.messageList}
         case 'RECEIVE_MESSAGE':
