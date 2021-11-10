@@ -13,7 +13,8 @@ function SingleNotification ({notificationData}) {
             <h2 className="notificationCard_Notification-Text">
                 Wants to start a chat with you, start a chat?
             </h2>
-            <ButtonsContainer />
+            <ButtonsContainer
+                sender={sender} />
         </div>
     )
 }

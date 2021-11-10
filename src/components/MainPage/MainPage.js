@@ -12,8 +12,8 @@ function MainPage ({sessionId}) {
     const [permissionToCloseModal, setPermissionToCloseModal] = useState(true);
 
     //TODO: Добавить страницу, при неудачном подключении к серверу
-
     //TODO: Добавить реконнект
+    //TODO: Добавить удаление уведомлений и закрытие моадльного окна поиска при старте чата
 
     return (
         <div className="mainPage_Container">
