@@ -62,9 +62,21 @@
     justify-content: flex-end;
 }
 
-.messageList_CompanionMessage {
+.messageList_MessageCard {
     max-width: 40%;
     margin-left: 10px;
+    margin: 0px 10px;
+}
+
+.messageCard_MessageInfo {
+    font-family: 'Aeonik';
+    color: gray;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.messageList_CompanionMessage {
+    max-width: 100%;
     background-color: #aa67aace;
     font-family: 'Aeonik';
     color: white;
@@ -75,8 +87,7 @@
 }
 
 .messageList_ClientMessage {
-    max-width: 40%;
-    margin-right: 10px;
+    max-width: 100%;
     background-color: white;
     font-family: 'Aeonik';
     color: #000000;

@@ -4,7 +4,7 @@ import MessageCard from './MessageCard';
 function MessageList ({messages}) {
 
     //TODO: Сделать отображение через map, менее костыльно
-    
+
     function renderMessages () {
         const messageList = [];
 
@@ -21,6 +21,7 @@ function MessageList ({messages}) {
                     <MessageCard
                         isLeftSide={!item.isClientMessage}
                         text={item.textMessage}
+                        time={item.time}
                     />
                 </div>
             );
