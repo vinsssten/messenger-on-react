@@ -1,6 +1,6 @@
 const findNameBySessionId = (sessionId, connectedUsersList) => {
-    const isFounded = false;
-    const foundedName = null;
+    let isFounded = false;
+    let foundedName = null;
 
     for (let item of connectedUsersList.entries()) {
         const beingCheckedId = item[1].userId; 
