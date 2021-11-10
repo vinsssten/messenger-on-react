@@ -7,13 +7,13 @@ import MessageList from './components/MessageList';
 
 function ChatModal () {
     const chatIsActive = useSelector(state => state.chat.chatIsActive);
-    const messageList = useSelector(state => state.chat.messageList);
+    const {nickname, idCompanion, messageList} = useSelector(state => state.chat);
 
     if (chatIsActive) {
         return reactDom.createPortal (
                 <div className="chatModal_Background">
                     <div className="chatModal_MainContainer">
-                        <div className="chatModal_Header">Nickname (123123123)</div>
+                        <div className="chatModal_Header">{nickname} ({idCompanion})</div>
                         <MessageList 
                             messages={messageList}
                         />
