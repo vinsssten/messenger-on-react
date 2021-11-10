@@ -7,7 +7,7 @@ const findIdBySessionId  = (sessionId, connectedUsersList) => {
 
         if (Number(beingCheckedId) === sessionId) {
             isIdFound = true;
-            foundedId = beingCheckedId
+            foundedId = item[0];
             break;
         }
     }

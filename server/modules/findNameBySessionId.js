@@ -7,7 +7,7 @@ const findNameBySessionId = (sessionId, connectedUsersList) => {
 
         if (Number(beingCheckedId) === sessionId) {
             isFounded = true;
-            foundedName = item[1].username;
+            foundedName = item[1].name;
             break;
         }
     }
