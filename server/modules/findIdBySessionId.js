@@ -17,5 +17,6 @@ const findIdBySessionId  = (sessionId, connectedUsersList) => {
     } else {
         return null
     }
-
 }
+
+module.exports = findIdBySessionId
