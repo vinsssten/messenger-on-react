@@ -4,6 +4,21 @@ const defaultState = {
     messageList: [{
         isClientMessage: true,
         textMessage: "This is a system message"
+    },{
+        isClientMessage: true,
+        textMessage: "Lorem ipsum dolor sit amet"
+    },{
+        isClientMessage: false,
+        textMessage: "Hello world!"
+    },{
+        isClientMessage: false,
+        textMessage: "I am client!"
+    },{
+        isClientMessage: true,
+        textMessage: "Lorem ipsum dolor sit amet"
+    },{
+        isClientMessage: true,
+        textMessage: "Lorem ipsum dolor sit amet"
     }]
 }
 

@@ -1,6 +1,7 @@
 import reactDom from 'react-dom'
 import { useSelector } from 'react-redux';
 import './ChatModal.css'
+import InputCardChatModal from './components/InputCardChatModal';
 
 import MessageList from './components/MessageList';
 
@@ -16,7 +17,7 @@ function ChatModal () {
                         <MessageList 
                             messages={messageList}
                         />
-                        
+                        <InputCardChatModal />
                     </div>
                 </div>,
                 document.getElementById('root')

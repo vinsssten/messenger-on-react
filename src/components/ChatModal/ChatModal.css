@@ -26,9 +26,6 @@
     backdrop-filter: blur(1px);
 }
 
-.chatModal_MessageList {
-    
-}
 
 .chatModal_Header {
     grid-area: 1 / 1 / 2 / 4; 
@@ -44,9 +41,47 @@
     font-weight: bold;
 }
 
-.chatModal_MessageList-MessageLine { 
+.chatModal_MessageList {
     grid-area: 2 / 1 / 3 / 4; 
+    display: flex;
+    flex-direction: column-reverse;
+}
 
+.chatModal_MessageList-MessageLine { 
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.rightSideMessage { 
+    justify-content: flex-start;
+}
+
+.leftSideMessage {
+    justify-content: flex-end;
+}
+
+.messageList_CompanionMessage {
+    max-width: 40%;
+    margin-left: 5px;
+    background-color: #bf65bfc6;
+    font-family: 'Aeonik';
+    color: white;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+    border: 2px dashed #844084c6;
+}
+
+.messageList_ClientMessage {
+    max-width: 40%;
+    margin-right: 5px;
+    background-color: white;
+    font-family: 'Aeonik';
+    color: #050505;
+    padding: 5px 5px 5px 10px;
+    border-radius: 5px;
+    border: 2px dashed #969596c6;
 }
 
 .InputZone { grid-area: 3 / 1 / 4 / 4; }
