@@ -1,4 +1,5 @@
 import React from 'react'
+import '../ChatModal.css'
 
 function MessageCard({isLeftSide, text}) {
     return (

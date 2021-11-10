@@ -3,22 +3,22 @@ const defaultState = {
     idCompanion: null,
     messageList: [{
         isClientMessage: true,
-        textMessage: "This is a system message"
+        textMessage: "This is a system message 1"
     },{
         isClientMessage: true,
-        textMessage: "Lorem ipsum dolor sit amet"
+        textMessage: "Lorem ipsum dolor sit amet 2"
     },{
         isClientMessage: false,
-        textMessage: "Hello world!"
+        textMessage: "Hello world! 3"
     },{
         isClientMessage: false,
-        textMessage: "I am client!"
+        textMessage: "I am client! 4"
     },{
         isClientMessage: true,
-        textMessage: "Lorem ipsum dolor sit amet"
+        textMessage: "Lorem ipsum dolor sit amet 5"
     },{
         isClientMessage: true,
-        textMessage: "Lorem ipsum dolor sit amet"
+        textMessage: "Lorem ipsum dolor sit amet 6"
     }]
 }
 

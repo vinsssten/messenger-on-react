@@ -64,24 +64,26 @@
 
 .messageList_CompanionMessage {
     max-width: 40%;
-    margin-left: 5px;
-    background-color: #bf65bfc6;
+    margin-left: 10px;
+    background-color: #aa67aace;
     font-family: 'Aeonik';
     color: white;
-    padding: 5px 10px 5px 5px;
+    font-size: 18px;
+    padding: 7px 10px;
     border-radius: 5px;
     border: 2px dashed #844084c6;
 }
 
 .messageList_ClientMessage {
     max-width: 40%;
-    margin-right: 5px;
+    margin-right: 10px;
     background-color: white;
     font-family: 'Aeonik';
-    color: #050505;
-    padding: 5px 5px 5px 10px;
+    color: #000000;
+    font-size: 18px;
+    padding: 7px 10px;
     border-radius: 5px;
-    border: 2px dashed #969596c6;
+    border: 2px dashed #dadada;
 }
 
 .InputZone { grid-area: 3 / 1 / 4 / 4; }

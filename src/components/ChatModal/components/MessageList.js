@@ -3,22 +3,30 @@ import MessageCard from './MessageCard';
 
 function MessageList ({messages}) {
 
-    //TODO: Исправить отображение сообщений в неправильном порядке
+    //TODO: Сделать отображение через map, менее костыльно
+    
     function renderMessages () {
-        return messages.map((item, index) => {
-            const defaultClassname = 'chatModal_MessageList-MessageLine ';
-            const finalClassname = item.isClientMessage ? defaultClassname + "rightSideMessage" : defaultClassname + "leftSideMessage";
+        const messageList = [];
 
-            return (
-            <div 
-                className={finalClassname}
-                key={index}>
-                <MessageCard
-                    isLeftSide={!item.isClientMessage}
-                    text={item.textMessage}
+        for (let i = 0; i < messages.length; i++) {
+            const curIndex = messages.length - i - 1;
+            const item = messages[curIndex];
+            const defaultClassname = 'chatModal_MessageList-MessageLine ';
+            const finalClassname = item?.isClientMessage ? defaultClassname + "rightSideMessage" : defaultClassname + "leftSideMessage";
+
+            messageList.push(
+                <div 
+                    className={finalClassname}
+                    key={i}>
+                    <MessageCard
+                        isLeftSide={!item.isClientMessage}
+                        text={item.textMessage}
                     />
-            </div>
-        )})
+                </div>
+            );
+        }
+
+        return messageList
     }
 
     return (
