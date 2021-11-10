@@ -18,6 +18,7 @@ function ChatModal () {
                             messages={messageList}
                         />
                         <InputCardChatModal />
+                        
                     </div>
                 </div>,
                 document.getElementById('root')
