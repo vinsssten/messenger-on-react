@@ -15,6 +15,11 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
                 dispatch({type: 'SOCKET_DISCONNECT', socket: socket})
             })
 
+            socket.on('chatStart', (data) => {
+                console.log('chatStart', data);
+                dispatch({type: 'CHAT_START', nickname: data.username, sessionId: data.sessionId})
+            })
+
             socket.on('requestToStartChat', (data) => {
                 console.log('data', data)
                 dispatch({type: "ADD_NOTIFICATION", userReqId: data.requesterId, nickname: data.requesterName})
