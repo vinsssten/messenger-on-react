@@ -14,8 +14,9 @@ function findDialogueById (searchedId, waitConfirmationUsers, parameters) {
             waitConfirmationUsers.set(socket.id, {waitFrom: curId});
             console.log('waitConf', waitConfirmationUsers)
 
+            
             io.to(user[0]).emit('requestToStartChat', {requesterId, requesterName});
-            socket.emit('waitUserConfirmation', curId);
+            socket.emit('waitConfirmation')
             break;
         }
     }

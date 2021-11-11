@@ -28,11 +28,11 @@ io.on("connection", (socket) => {
 
     const standartParameters = {connectedUsersList, socket, io};
 
-    socket.on('setUsername', data => setUserNickname(data, connectedUsersList, socket.id))
+    socket.on('setUsername', data => setUserNickname(data, connectedUsersList, socket.id));
 
     socket.on('findDialogueById', searchedId => findDialogueById(searchedId, waitConfirmationUsers, standartParameters));
 
-    socket.on('acceptChat', data => acceptChat(data, activeDialogues, waitConfirmationUsers, standartParameters))
+    socket.on('acceptChat', data => acceptChat(data, activeDialogues, waitConfirmationUsers, standartParameters));
 
     socket.on('getUsers', () => {
         const convertedMap = [...connectedUsersList].map(([name, value]) => ({ name, value }))
