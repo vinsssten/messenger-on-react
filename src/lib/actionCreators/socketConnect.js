@@ -22,6 +22,11 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
                 dispatch({type: 'SET_WAITCONFIRMATION'})
             })
 
+            socket.on('waitConfirmationReject', (message) => {
+                alert(message);
+                dispatch({type: "DELETE_WAITCONFIRMATION", messageConfirmation: message})
+            })
+
             socket.on('chatStart', (data) => {
                 console.log('chatStart', data);
                 dispatch({type: 'CHAT_START', nickname: data.username, sessionId: data.sessionId})

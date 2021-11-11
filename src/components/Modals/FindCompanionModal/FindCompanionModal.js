@@ -43,7 +43,7 @@ function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
                     <h1>Wait confirmation</h1>
                     : 
                     <ButtonModal
-                        action={() => sendRequestToDialogue()}>
+                        action={sendRequestToDialogue}>
                         Send request to dialogue
                     </ButtonModal>
                     }

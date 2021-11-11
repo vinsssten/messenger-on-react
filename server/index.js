@@ -4,6 +4,7 @@ const { Server } = require("socket.io");
 const acceptChat = require("./socketEvents/acceptChat");
 const creatingSocketID = require("./socketEvents/creatingSessionID");
 const findDialogueById = require("./socketEvents/findDialogueById");
+const discardChat = require("./socketEvents/discardChat");
 const setUserNickname = require('./socketEvents/setUserNickname');
 
 
@@ -33,6 +34,8 @@ io.on("connection", (socket) => {
     socket.on('findDialogueById', searchedId => findDialogueById(searchedId, waitConfirmationUsers, standartParameters));
 
     socket.on('acceptChat', data => acceptChat(data, activeDialogues, waitConfirmationUsers, standartParameters));
+
+    socket.on('discardChat', data => discardChat(data, waitConfirmationUsers, standartParameters))
 
     socket.on('getUsers', () => {
         const convertedMap = [...connectedUsersList].map(([name, value]) => ({ name, value }))
