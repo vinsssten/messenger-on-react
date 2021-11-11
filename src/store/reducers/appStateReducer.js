@@ -13,7 +13,7 @@ const appStateReducer = (state = defaultState, action) => {
                 nickname: action.nickname}]
             }
         case 'SET_WAITCONFIRMATION':
-            return {...state, waitConfirmationChat: true}
+            return {...state, waitConfirmationChat: true, messageConfirmation: null}
         case 'DELETE_WAITCONFIRMATION':
             return {...state, waitConfirmationChat: false, messageConfirmation: action.messageConfirmation}
         case 'OPEN_FINDMODAL':

@@ -14,27 +14,25 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
             })
 
             socket.on('disconnect', () => {
-                dispatch({type: 'SOCKET_DISCONNECT', socket: socket})
+                dispatch({type: 'SOCKET_DISCONNECT', socket: socket});
             })
 
             socket.on('waitConfirmation', () => {
-                alert('waitConfirmation')
-                dispatch({type: 'SET_WAITCONFIRMATION'})
+                dispatch({type: 'SET_WAITCONFIRMATION'});
             })
 
             socket.on('waitConfirmationReject', (message) => {
-                alert(message);
-                dispatch({type: "DELETE_WAITCONFIRMATION", messageConfirmation: message})
+                dispatch({type: "DELETE_WAITCONFIRMATION", messageConfirmation: message});
             })
 
             socket.on('chatStart', (data) => {
                 console.log('chatStart', data);
-                dispatch({type: 'CHAT_START', nickname: data.username, sessionId: data.sessionId})
+                dispatch({type: 'CHAT_START', nickname: data.username, sessionId: data.sessionId});
             })
 
             socket.on('requestToStartChat', (data) => {
-                console.log('data', data)
-                dispatch({type: "ADD_NOTIFICATION", userReqId: data.requesterId, nickname: data.requesterName})
+                console.log('data', data);
+                dispatch({type: "ADD_NOTIFICATION", userReqId: data.requesterId, nickname: data.requesterName});
             })
         })
 
