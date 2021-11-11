@@ -3,7 +3,7 @@ import './ConnectedCard.css'
 
 import ActionButtonMainCard from "./ActionButtonMainCard";
 
-function ConnectedCard ({sessionId, isActiveFindModal, setIsActiveFindModal}) {
+function ConnectedCard ({sessionId, toggleFindModal}) {
     
     return (
         <div className="mainPage_ConnectionInfo">
@@ -15,7 +15,7 @@ function ConnectedCard ({sessionId, isActiveFindModal, setIsActiveFindModal}) {
                 can send a request to create a chat
             </div>
             <ActionButtonMainCard
-                action={() => setIsActiveFindModal(!isActiveFindModal)}>
+                action={() => toggleFindModal()}>
                     Start a chat!
             </ActionButtonMainCard>
             <ActionButtonMainCard
