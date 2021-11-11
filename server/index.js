@@ -15,6 +15,7 @@ const io = new Server(httpServer, { cors: {
 } });
 
 let connectedUsersList = new Map();
+let waitConfirmationUsers = new Map();
 let activeDialogues = [];
 
 //TODO: Запретить открытие чата с самим собой
@@ -25,12 +26,13 @@ io.on("connection", (socket) => {
     socket.emit('userID', creatingSocketID(socket, connectedUsersList));
     console.log('connected users', connectedUsersList);
 
-    const standartParameters = {connectedUsersList, socket, io}
+    const standartParameters = {connectedUsersList, socket, io};
+
     socket.on('setUsername', data => setUserNickname(data, connectedUsersList, socket.id))
 
-    socket.on('findDialogueById', searchedId => findDialogueById(io, socket, searchedId, connectedUsersList, activeDialogues));
+    socket.on('findDialogueById', searchedId => findDialogueById(searchedId, waitConfirmationUsers, standartParameters));
 
-    socket.on('acceptChat', data => acceptChat(data, activeDialogues, standartParameters))
+    socket.on('acceptChat', data => acceptChat(data, activeDialogues, waitConfirmationUsers, standartParameters))
 
     socket.on('getUsers', () => {
         const convertedMap = [...connectedUsersList].map(([name, value]) => ({ name, value }))

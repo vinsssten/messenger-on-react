@@ -1,4 +1,5 @@
-function findDialogueById (io, socket, searchedId, connectedUsersList) {
+function findDialogueById (searchedId, waitConfirmationUsers, parameters) {
+    const {connectedUsersList, socket, io} = parameters;
     let isUserFound = false;
 
     for (let user of connectedUsersList.entries()) {
@@ -9,6 +10,9 @@ function findDialogueById (io, socket, searchedId, connectedUsersList) {
             //Параметры пользователя, который отправил запрос
             const {userId: requesterId, name} = connectedUsersList.get(socket.id);
             const requesterName = name ? name : "Anonymous";
+
+            waitConfirmationUsers.set(socket.id, {waitFrom: curId});
+            console.log('waitConf', waitConfirmationUsers)
 
             io.to(user[0]).emit('requestToStartChat', {requesterId, requesterName});
             socket.emit('waitUserConfirmation', curId);
