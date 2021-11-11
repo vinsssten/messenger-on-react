@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
     const [curIdInput, setCurIdInput] = useState('');
     const {socket} = useSelector(state => state.socket)
-    const {waitConfirmationChat} = useSelector(state => state.app)
+    const {waitConfirmationChat, messageConfirmation} = useSelector(state => state.app)
 
     function inputHandle (event) {
         const value = event.target.value;
@@ -40,12 +40,17 @@ function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
                         maxLength={9}
                     />
                     {waitConfirmationChat ?
-                    <h1>Wait confirmation</h1>
+                    <h1 className="findModalWindow_Status pendingText">Waiting for the user's response...</h1>
                     : 
                     <ButtonModal
                         action={sendRequestToDialogue}>
                         Send request to dialogue
                     </ButtonModal>
+                    }
+                    {messageConfirmation ?
+                        <h1 className="findModalWindow_Status rejectText">{messageConfirmation}</h1>
+                    :
+                    <></>
                     }
             </ModalWindowPortal>
         )

@@ -17,7 +17,9 @@ function discardChat (recepientId, waitConfirmationUsers, parameters) {
         }
     }
 
-    io.to(waiterSocketId).emit('waitConfirmationReject', 'User discard your offer');
+    if (isFound) {
+        io.to(waiterSocketId).emit('waitConfirmationReject', 'User discard your offer');
+    }
 }
 
 module.exports = discardChat;
