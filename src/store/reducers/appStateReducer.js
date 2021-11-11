@@ -12,6 +12,8 @@ const appStateReducer = (state = defaultState, action) => {
                 sender: action.userReqId,
                 nickname: action.nickname}]
             }
+        case 'DELETE_NOTIFICATION': 
+            return {...state, notificationList: state.notificationList.slice(0, action.index).concat(state.notificationList.slice(action.index + 1))}
         case 'SET_WAITCONFIRMATION':
             return {...state, waitConfirmationChat: true, messageConfirmation: null}
         case 'DELETE_WAITCONFIRMATION':

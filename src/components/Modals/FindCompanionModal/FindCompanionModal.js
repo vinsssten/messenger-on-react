@@ -39,6 +39,7 @@ function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
                         value={curIdInput}
                         maxLength={9}
                     />
+                    
                     {waitConfirmationChat ?
                     <h1 className="findModalWindow_Status pendingText">Waiting for the user's response...</h1>
                     : 
@@ -47,6 +48,7 @@ function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
                         Send request to dialogue
                     </ButtonModal>
                     }
+
                     {messageConfirmation ?
                         <h1 className="findModalWindow_Status rejectText">{messageConfirmation}</h1>
                     :

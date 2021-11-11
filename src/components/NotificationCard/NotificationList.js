@@ -11,6 +11,7 @@ function NotificationList ({notificationArray}) {
                 return <SingleNotification 
                     notificationData={notificationArray[index]}
                     key={index}
+                    index={index}
                 />
             }).reverse()}
         </div>

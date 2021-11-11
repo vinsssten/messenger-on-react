@@ -1,12 +1,14 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './NotificationCard.css'
 
-function ButtonsContainer ({sender}) {
+function ButtonsContainer ({sender, index}) {
     const {socket} = useSelector(state => state.socket);
+    const dispatch = useDispatch();
 
     function acceptChat () {
         try {
             socket.emit('acceptChat', sender);
+            deleteNotification(index)
         } catch (err) {
             console.log('err in acceptChat', err);
         }
@@ -15,9 +17,15 @@ function ButtonsContainer ({sender}) {
     function discardChat () {
         try {
             socket.emit('discardChat', sender);
+            console.log('key', index)
+            deleteNotification(index)
         } catch (err) {
             console.log('err in discardChat', err);
         }
+    }
+
+    function deleteNotification (key) {
+        dispatch({type: 'DELETE_NOTIFICATION', index: key})
     }
     
     return (
