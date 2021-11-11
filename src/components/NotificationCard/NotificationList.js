@@ -12,7 +12,7 @@ function NotificationList ({notificationArray}) {
                     notificationData={notificationArray[index]}
                     key={index}
                 />
-            })}
+            }).reverse()}
         </div>
     )
 }
