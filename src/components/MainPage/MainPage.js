@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './MainPage.css'
 
 import ConnectedCard from '../ConnectedCard/ConnectedCard'
@@ -8,18 +9,23 @@ import NotificationCard from '../NotificationCard/NotificationCard'
 import ChatModal from '../ChatModal/ChatModal'
 
 function MainPage ({sessionId}) {
-    const [isActiveFindModal, setIsActiveFindModal] = useState(false);
-    const [permissionToCloseModal, setPermissionToCloseModal] = useState(true);
+    const {findModalActive} = useSelector(state => state.app)
+    const dispatch = useDispatch();
 
     //TODO: Добавить страницу, при неудачном подключении к серверу
-    //TODO: Добавить реконнект
     //TODO: Добавить удаление уведомлений и закрытие моадльного окна поиска при старте чата
 
-    
+    function toggleFindModal () {
+        if (findModalActive) {
+            dispatch({type: "CLOSE_FINDMODAL"});
+        } else {
+            dispatch({type: "OPEN_FINDMODAL"});
+        }
+    }
+
     useEffect(() => {
         document.title = "MoR: MainPage";
     }, [])
-
 
     return (
         <div className="mainPage_Container">
@@ -30,8 +36,7 @@ function MainPage ({sessionId}) {
             <div className="mainPage_Content">
                 <ConnectedCard
                     sessionId={sessionId}
-                    isActiveFindModal={isActiveFindModal}
-                    setIsActiveFindModal={setIsActiveFindModal}
+                    toggleFindModal={toggleFindModal}
                 />
             </div>
             <div className="mainPage_RS">
@@ -39,10 +44,8 @@ function MainPage ({sessionId}) {
             </div>
             <FindCompanionModal 
                 sessionId={sessionId}
-                isActive={isActiveFindModal}
-                setIsActive={setIsActiveFindModal}
-                permissionToCloseModal={permissionToCloseModal}
-                setPermissionToCloseModal={setPermissionToCloseModal}
+                findModalActive={findModalActive}
+                toggleFindModal={toggleFindModal}
             />
             <ChatModal />
         </div>

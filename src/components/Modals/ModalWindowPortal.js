@@ -3,24 +3,28 @@ import reactDom from 'react-dom'
 import { useSelector } from 'react-redux';
 import './ModalWindowPortal.css'
 
-function ModalWindowPortal ({children, isActive, setIsActive, permissionToCloseModal}) {
+function ModalWindowPortal ({children, findModalActive, toggleFindModal}) {
     const chatIsActive = useSelector(state => state.chat.chatIsActive);
+    const waitConfirmationChat = useSelector(state => state.app.waitConfirmationChat)
 
     useEffect(() => {
         if (chatIsActive) {
-            setIsActive(false);
+            toggleFindModal()
         }
     }, [chatIsActive])
 
     function closeWindow (event) {
-        if (event.target.id === 'modalBackground' && permissionToCloseModal) {
-            setIsActive(!isActive)
+        console.log('waitConfirmationChat', waitConfirmationChat)
+        if (event.target.id === 'modalBackground' && !waitConfirmationChat) {
+            toggleFindModal()
         } else {
+            console.log('close reject')
             return;
         }
     }
     
-    if (isActive) {
+    if (findModalActive) {
+        console.log('findModalActive')
         return reactDom.createPortal(
             <div
                 id='modalBackground'
