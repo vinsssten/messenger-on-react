@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './MainPage.css'
 
 import ConnectedCard from '../ConnectedCard/ConnectedCard'
@@ -14,6 +14,12 @@ function MainPage ({sessionId}) {
     //TODO: Добавить страницу, при неудачном подключении к серверу
     //TODO: Добавить реконнект
     //TODO: Добавить удаление уведомлений и закрытие моадльного окна поиска при старте чата
+
+    
+    useEffect(() => {
+        document.title = "MoR: MainPage";
+    }, [])
+
 
     return (
         <div className="mainPage_Container">

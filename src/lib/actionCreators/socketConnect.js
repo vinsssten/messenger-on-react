@@ -7,6 +7,8 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
         socket.on('connect', () => {
             socket.emit('setNickname', name);
 
+            dispatch({type: "SET_SOCKET", socket: socket, isSocketConnected: socket.connected});
+
             socket.on('userID', data => {
                 dispatch({type: 'SET_SESSIONID', sessionId: data});
             })
@@ -26,7 +28,6 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
             })
         })
 
-        return {type: "SET_SOCKET", socket: socket, isSocketConnected: true}
     } catch (err) {
         console.log('error while connecting to socket', err);
         return {type: "SOCKET_ERROR", message: err}

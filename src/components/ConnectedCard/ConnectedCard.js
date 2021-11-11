@@ -8,7 +8,7 @@ function ConnectedCard ({sessionId, isActiveFindModal, setIsActiveFindModal}) {
     return (
         <div className="mainPage_ConnectionInfo">
             <div className="mainPage_SessionID">
-                Your ID : {!sessionId? "Loading..." : sessionId}
+                Your ID : {!sessionId ? "Loading..." : sessionId}
             </div>
             <div className="mainPage_HintText">
                 Tell this ID to your friend so that he 
