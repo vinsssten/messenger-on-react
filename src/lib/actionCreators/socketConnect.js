@@ -31,13 +31,16 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
             })
             
             socket.on('getMessage', (data) => {
-                // alert('detected message', data)
                 dispatch({type: "RECEIVE_MESSAGE", isClientMessage: data.isClientMessage, textMessage: data.textMessage, time: data.time})
             })
 
             socket.on('requestToStartChat', (data) => {
                 console.log('data', data);
                 dispatch({type: "ADD_NOTIFICATION", userReqId: data.requesterId, nickname: data.requesterName});
+            })
+
+            socket.on('rejectChat', () => {
+                dispatch({type: "CHAT_REJECT"})
             })
         })
 

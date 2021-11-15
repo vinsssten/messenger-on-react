@@ -7,7 +7,7 @@ const findDialogueById = require("./socketEvents/findDialogueById");
 const discardChat = require("./socketEvents/discardChat");
 const setUserNickname = require('./socketEvents/setUserNickname');
 const redirectMessage = require("./modules/redirectMessage");
-
+const rejectChat = require("./modules/rejectChat");
 
 const app = express();
 const httpServer = createServer(app);
@@ -20,8 +20,7 @@ let connectedUsersList = new Map();
 let waitConfirmationUsers = new Map();
 let activeDialogues = [];
 
-//TODO: Запретить открытие чата с самим собой
-//TODO: Добавить события отправки уведомления (отмена, ожидание подтверждения)
+//FIXME: Пофиксить проблему с отправкой уведомления пользователь не найден
 
 io.on("connection", (socket) => {
     console.log('user connected', socket.id);
@@ -47,7 +46,8 @@ io.on("connection", (socket) => {
     })
 
     socket.on('disconnect', data => {
-        connectedUsersList.delete(socket.id)    
+        connectedUsersList.delete(socket.id);
+        rejectChat(socket.id, 'Your companion was disconnected', activeDialogues, standartParameters)
         console.log('user disconnect:', socket.id);
         // console.log('connected users:', connectedUsersList)
     })
