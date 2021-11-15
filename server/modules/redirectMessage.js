@@ -6,31 +6,31 @@ const date = new Date();
 function redirectMessage (textMessage, activeDialogues, standartParameters ) {
     console.log('new message detected', textMessage)
     const {socket, io, connectedUsersList} = standartParameters;
-    let users = {};
+    let firstSocketId = null;
+    let secondSocketId = null;
     let isFoundDiags = false;
 
     activeDialogues.forEach((value, index) => {
-        const firstSocketId = findIdBySessionId(value.firstUserId, connectedUsersList);
-        const secondSocketId = findIdBySessionId(value.secondUserId, connectedUsersList);
-        console.log('value', value)
-        if (socket.id === firstSocketId || socket.id === secondSocketId) {
-            users = value;
+        const curFirstSocketId = findIdBySessionId(value.firstUserId, connectedUsersList);
+        const curSecondSocketId = findIdBySessionId(value.secondUserId, connectedUsersList);
+        if (socket.id === curFirstSocketId || socket.id === curSecondSocketId) {
+            firstSocketId = curFirstSocketId;
+            secondSocketId = curSecondSocketId;
             isFoundDiags = true;
+
         }
     }) 
 
     if (isFoundDiags) {
-        const recepientId = socket.id === users.firstUserId ? users.firstUserId : users.secondUserId;
-        const senderId = socket.id === users.firstUserId ? users.secondUserId : users.firstUserId;
+        // const senderId = 
+        const recepientId = socket.id !== firstSocketId ? firstSocketId : secondSocketId;
 
-
-        console.log('message from:', senderId, "to:", recepientId)
-        io.to(senderId).emit('newMessage', {
+        io.to(socket.id).emit('getMessage', {
             isClientMessage: true,
             textMessage: textMessage,
             time: `${date.getHours()}:${date.getMinutes()}`
         })
-        io.to(recepientId).emit('newMessage', {
+        io.to(recepientId).emit('getMessage', {
             isClientMessage: false,
             textMessage: textMessage,
             time: `${date.getHours()}:${date.getMinutes()}`

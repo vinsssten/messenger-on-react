@@ -8,7 +8,6 @@ function InputCardChatModal() {
     function onChangeMessage (event) {
         const value = event.target.value;
         setMessageValue(value);
-        console.log(value)
     }
 
     function sendMessage () {
@@ -24,7 +23,8 @@ function InputCardChatModal() {
     //FIXME: Сделать отправку менее кривой
     function enterPressHandler (event) {
         if (event.keyCode === 13) {
-            sendMessage()
+            event.preventDefault();
+            sendMessage();
         }
     }
 

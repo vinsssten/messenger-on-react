@@ -28,10 +28,11 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
             socket.on('chatStart', (data) => {
                 console.log('chatStart', data);
                 dispatch({type: 'CHAT_START', nickname: data.username, sessionId: data.sessionId});
-
-                socket.on('getMessage', (data) => {
-                    dispatch({type: "RECEIVE_MESSAGE", isClientMessage: data.isClientMessage, textMessage: data.textMessage, time: data.time})
-                })
+            })
+            
+            socket.on('getMessage', (data) => {
+                // alert('detected message', data)
+                dispatch({type: "RECEIVE_MESSAGE", isClientMessage: data.isClientMessage, textMessage: data.textMessage, time: data.time})
             })
 
             socket.on('requestToStartChat', (data) => {

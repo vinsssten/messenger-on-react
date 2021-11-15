@@ -6,8 +6,8 @@ const defaultState = {
     idCompanion: null,
     chatIsActive: false,
     messageList: [{
-        isClientMessage: true,
-        textMessage: `This is a system message, chat with the user ${this?.isClientMessage} started!` ,
+        isClientMessage: false,
+        textMessage: `This is a system message, chat with the user ${this?.nickname} started!` ,
         time: `${date.getHours()}:${date.getMinutes()}`
     }]
 }
