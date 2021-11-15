@@ -6,6 +6,7 @@ const creatingSocketID = require("./socketEvents/creatingSessionID");
 const findDialogueById = require("./socketEvents/findDialogueById");
 const discardChat = require("./socketEvents/discardChat");
 const setUserNickname = require('./socketEvents/setUserNickname');
+const redirectMessage = require("./modules/redirectMessage");
 
 
 const app = express();
@@ -34,6 +35,8 @@ io.on("connection", (socket) => {
     socket.on('findDialogueById', searchedId => findDialogueById(searchedId, waitConfirmationUsers, standartParameters));
 
     socket.on('acceptChat', data => acceptChat(data, activeDialogues, waitConfirmationUsers, standartParameters));
+
+    socket.on('sendMessage', data => redirectMessage(data, activeDialogues, standartParameters))
 
     socket.on('discardChat', data => discardChat(data, waitConfirmationUsers, standartParameters))
 

@@ -19,15 +19,19 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
 
             socket.on('waitConfirmation', () => {
                 dispatch({type: 'SET_WAITCONFIRMATION'});
-            })
 
-            socket.on('waitConfirmationReject', (message) => {
-                dispatch({type: "DELETE_WAITCONFIRMATION", messageConfirmation: message});
+                socket.on('waitConfirmationReject', (message) => {
+                    dispatch({type: "DELETE_WAITCONFIRMATION", messageConfirmation: message});
+                })
             })
 
             socket.on('chatStart', (data) => {
                 console.log('chatStart', data);
                 dispatch({type: 'CHAT_START', nickname: data.username, sessionId: data.sessionId});
+
+                socket.on('getMessage', (data) => {
+                    dispatch({type: "RECEIVE_MESSAGE", isClientMessage: data.isClientMessage, textMessage: data.textMessage, time: data.time})
+                })
             })
 
             socket.on('requestToStartChat', (data) => {
