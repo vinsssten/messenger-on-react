@@ -1,6 +1,7 @@
 const date = new Date();
 
 function redirectMessage (textMessage, activeDialogues, standartParameters ) {
+    console.log('new message detected', textMessage)
     const {socket, io} = standartParameters;
     let users = {};
     let isFoundDiags = false;
@@ -16,6 +17,8 @@ function redirectMessage (textMessage, activeDialogues, standartParameters ) {
         const senderId = socket.id === users.firstUserId ? users.firstUserId : users.secondUserId;
         const recepientId = socket.id === users.firstUserId ? users.secondUserId : users.firstUserId;
 
+
+        console.log('message from:', senderId, "to:", recepientId)
         io.to(senderId).emit('newMessage', {
             isClientMessage: true,
             textMessage: textMessage,
