@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
+import validator from 'validator';
 
 function InputCardChatModal() {
     const {socket, isSocketConnected} = useSelector(state => state.socket)
@@ -22,7 +23,8 @@ function InputCardChatModal() {
 
     //FIXME: Сделать отправку менее кривой
     function enterPressHandler (event) {
-        if (event.keyCode === 13) {
+        const userParams = {ignore_whitespace:true};
+        if (!validator.isEmpty(messageValue, userParams) && event.keyCode === 13) {
             event.preventDefault();
             sendMessage();
         }
