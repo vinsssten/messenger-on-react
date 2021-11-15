@@ -49,6 +49,7 @@
     grid-area: messageZone; 
     display: flex;
     flex-direction: column-reverse;
+    overflow-y: scroll;
 }
 
 .chatModal_MessageList-MessageLine { 
@@ -59,11 +60,11 @@
 }
 
 .rightSideMessage { 
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 .leftSideMessage {
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .messageList_MessageCard {

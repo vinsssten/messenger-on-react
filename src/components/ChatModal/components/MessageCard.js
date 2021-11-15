@@ -7,7 +7,7 @@ function MessageCard({isLeftSide, text, time}) {
             <div className="messageCard_MessageInfo">
                 {time}
             </div>
-            <div className={isLeftSide ? "messageList_ClientMessage" : "messageList_CompanionMessage"}>
+            <div className={isLeftSide ? "messageList_CompanionMessage" : "messageList_ClientMessage"}>
                 {text}
             </div>
         </div>
