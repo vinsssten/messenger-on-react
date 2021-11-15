@@ -11,8 +11,7 @@ import ChatModal from '../ChatModal/ChatModal'
 function MainPage ({sessionId}) {
     const {findModalActive} = useSelector(state => state.app)
     const dispatch = useDispatch();
-
-    //TODO: Добавить страницу, при неудачном подключении к серверу
+    
     //TODO: Добавить удаление уведомлений и закрытие моадльного окна поиска при старте чата
 
     function toggleFindModal () {

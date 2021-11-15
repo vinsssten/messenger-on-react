@@ -20,8 +20,6 @@ function InputCardChatModal() {
         }
     }
 
-
-    //FIXME: Сделать отправку менее кривой
     function enterPressHandler (event) {
         const userParams = {ignore_whitespace:true};
         if (!validator.isEmpty(messageValue, userParams) && event.keyCode === 13) {

@@ -5,6 +5,7 @@ const defaultState = {
     nickname: null,
     idCompanion: null,
     chatIsActive: false,
+    chatIsRejected: false,
     messageList: [{
         isClientMessage: false,
         textMessage: `This is a system message, chat with the user ${this?.nickname} started!` ,
@@ -24,6 +25,8 @@ const chatStateReducer = (state = defaultState, action) => {
                 textMessage: action.textMessage,
                 time: action.time
             }]}
+        case "CHAT_REJECT":
+            return {...state, chatIsRejected: true}
         default:
             return state
     }
