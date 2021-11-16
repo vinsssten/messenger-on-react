@@ -1,15 +1,16 @@
 const findIdBySessionId = require("./findIdBySessionId")
 
-const rejectChat = (socketId, message, activeDialogues, standartParameters) => {
+const rejectChat = (senderSocketId, message, activeDialogues, standartParameters) => {
     const {io, connectedUsersList} = standartParameters;
-    const senderSessionId = connectedUsersList.get(socketId).userId;
+    const senderSessionId = connectedUsersList.get(senderSocketId).userId;
     let receiverSessionId = null;
 
-    activeDialogues.forEach((value, index, array) => { 
+    activeDialogues.forEach((value, index) => { 
+        console.log('value', value.firstUserId, value.secondUserId)
         if (value.firstUserId === senderSessionId) {
-            receiverSessionId = value.secondSessionId;
-        } else if (value.secondSessionId === senderSessionId) {
-            receiverSessionId = value.firstSessionId;
+            receiverSessionId = value.secondUserId;
+        } else if (value.secondUserId === senderSessionId) {
+            receiverSessionId = value.firstUserId;
         }
     })
 

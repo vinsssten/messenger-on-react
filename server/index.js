@@ -46,10 +46,9 @@ io.on("connection", (socket) => {
     })
 
     socket.on('disconnect', data => {
+        rejectChat(socket.id, 'Your companion was disconnected', activeDialogues, standartParameters);
         connectedUsersList.delete(socket.id);
-        rejectChat(socket.id, 'Your companion was disconnected', activeDialogues, standartParameters)
         console.log('user disconnect:', socket.id);
-        // console.log('connected users:', connectedUsersList)
     })
 });
 
