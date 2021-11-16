@@ -26,7 +26,11 @@ const chatStateReducer = (state = defaultState, action) => {
                 time: action.time
             }]}
         case "CHAT_REJECT":
-            return {...state, chatIsRejected: true}
+            return {...state, chatIsRejected: true, messageList: [...state.messageList, {
+                isClientMessage: false,
+                textMessage: action.message,
+                time: state.time}
+            ]}
         default:
             return state
     }

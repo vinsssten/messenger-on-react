@@ -39,8 +39,8 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
                 dispatch({type: "ADD_NOTIFICATION", userReqId: data.requesterId, nickname: data.requesterName});
             })
 
-            socket.on('rejectChat', () => {
-                dispatch({type: "CHAT_REJECT"})
+            socket.on('rejectChat', (data) => {
+                dispatch({type: "CHAT_REJECT", message: data})
             })
         })
 

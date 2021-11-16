@@ -7,7 +7,7 @@ import MessageList from './components/MessageList';
 
 function ChatModal () {
     const chatIsActive = useSelector(state => state.chat.chatIsActive);
-    const {nickname, idCompanion, messageList} = useSelector(state => state.chat);
+    const {nickname, idCompanion, messageList, chatIsRejected} = useSelector(state => state.chat);
 
     if (chatIsActive) {
         return reactDom.createPortal (
@@ -17,8 +17,9 @@ function ChatModal () {
                         <MessageList 
                             messages={messageList}
                         />
-                        <InputCardChatModal />
-                        
+                        <InputCardChatModal 
+                            isRejected={chatIsRejected}
+                        />
                     </div>
                 </div>,
                 document.getElementById('root')
