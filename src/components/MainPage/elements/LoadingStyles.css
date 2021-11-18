@@ -15,10 +15,11 @@
 	font-weight: bold;
 	font-size: 36px;
 	color: #4dd6d6;
-	margin-bottom: 0px;
+	margin-bottom: 20px;
 }
 
 .loadingCard_AdditionalText {
+	margin: 0px 0px 20px 0px;
 	font-family: 'Aeonik';
 	font-weight: normal;
 	font-size: 28px;
