@@ -18,7 +18,7 @@
     grid-template-columns: 1fr 0.2fr; 
     grid-template-rows: 0.3fr 2fr 0.25fr; 
     grid-template-areas: 
-        "header header"
+        "header reject-button-zone"
         "messageZone messageZone"
         "inputMessage sendButtonZone"; 
     gap: 0px 0px;
@@ -41,8 +41,40 @@
     background-color: #ffffffdc;
     font-family: 'Aeonik';
     font-size: 32px;
-    border-radius: 10px 10px 0 0 ;
+    border-radius: 10px 0 0 0 ;
     font-weight: bold;
+}
+
+.chatModal-RejectButtonContainer {
+    grid-area: reject-button-zone; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;    
+    width: 100%;
+    background-color: #fdfdfd;
+    border-radius: 0 10px 0 0;
+    user-select: none;
+}
+
+.chatModal-RejectButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    font-size: 28px;
+    background-color: #eb7474;
+    border-radius: 10px;
+    transition: 50ms ;
+}
+.chatModal-RejectButton:hover {
+    border-radius: 0px;
+    background-color: #d16767;
+}
+.chatModal-RejectButton:active {
+    background-color: #a04040;
+    transform: scale(0.95);
 }
 
 .chatModal_MessageList {
@@ -164,6 +196,13 @@
     cursor: pointer;
 }
 
+.rejected {
+    background-color: #ffffffd2;
+    color: black;
+    font-family: 'Aeonik';
+    font-size: 30px;
+    font-weight: bold;
+}
 
 @media (max-width: 1300px) {
     .chatModal_MainContainer{

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import validator from 'validator';
 
-function InputCardChatModal({isRejected}) {
-    const {socket, isSocketConnected} = useSelector(state => state.socket)
+function InputCardChatModal() {
+    const {socket} = useSelector(state => state.socket)
     const [messageValue, setMessageValue] = useState('');
 
     function onChangeMessage (event) {
@@ -32,18 +32,14 @@ function InputCardChatModal({isRejected}) {
     return (
         <>
             <div className="chatModal_InputMessageContainer">
-                {isRejected ? 
-                    <h1>Chat is closed</h1>
-                :
-                    <textarea
-                        className="chatModal_MessageInput"
-                        type="text"
-                        placeholder="Input message..."
-                        value={messageValue}
-                        onChange={onChangeMessage}
-                        onKeyDown={enterPressHandler}
-                    />
-                }
+                <textarea
+                    className="chatModal_MessageInput"
+                    type="text"
+                    placeholder="Input message..."
+                    value={messageValue}
+                    onChange={onChangeMessage}
+                    onKeyDown={enterPressHandler}
+                />
             </div>
             <div className="chatModal_SendButtonContainer">
                 <div 

@@ -18,10 +18,10 @@ function ConnectedCard ({sessionId, toggleFindModal}) {
                 action={() => toggleFindModal()}>
                     Start a chat!
             </ActionButtonMainCard>
-            <ActionButtonMainCard
+            {/* <ActionButtonMainCard
                 action={() => alert('Is under construction')}>
                     Find a random companion
-            </ActionButtonMainCard>
+            </ActionButtonMainCard> */}
         </div>
     )
 }

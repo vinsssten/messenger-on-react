@@ -35,10 +35,12 @@ try {
         socket.on('findDialogueById', searchedId => findDialogueById(searchedId, waitConfirmationUsers, standartParameters));
     
         socket.on('acceptChat', data => acceptChat(data, activeDialogues, waitConfirmationUsers, standartParameters));
+
+        socket.on('discardChat', data => discardChat(data, waitConfirmationUsers, standartParameters));
+
+        socket.on('rejectChat', data => {})
     
         socket.on('sendMessage', data => redirectMessage(data, activeDialogues, standartParameters))
-    
-        socket.on('discardChat', data => discardChat(data, waitConfirmationUsers, standartParameters))
     
         socket.on('getUsers', () => {
             const convertedMap = [...connectedUsersList].map(([name, value]) => ({ name, value }))

@@ -13,7 +13,6 @@ function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
     function inputHandle (event) {
         const value = event.target.value;
         if (Number(value) || value === '') {
-            console.log(Number(value))
             setCurIdInput(value)
         }
     }

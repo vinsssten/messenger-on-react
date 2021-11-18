@@ -4,7 +4,6 @@ const date = new Date();
 
 //FIXME: Функция рабоает некорректно
 function redirectMessage (textMessage, activeDialogues, standartParameters ) {
-    console.log('new message detected', textMessage)
     const {socket, io, connectedUsersList} = standartParameters;
     let firstSocketId = null;
     let secondSocketId = null;
