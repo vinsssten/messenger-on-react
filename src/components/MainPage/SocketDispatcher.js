@@ -20,12 +20,10 @@ function SocketDispatcher (props) {
     }, [isSocketConnected])
 
     if (!isSocketConnected) {
-        console.log('non connected')
         return (
             <LoadingCard />
         )
     } else {
-        console.log('connected')
         return (
             <MainPage
                 sessionId={sessionId}
