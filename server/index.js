@@ -22,7 +22,6 @@ let activeDialogues = [];
 
 //FIXME: Пофиксить проблему с отправкой уведомления пользователь не найден
 
-
 try {
     io.on("connection", (socket) => {
         console.log('user connected', socket.id);
@@ -55,6 +54,7 @@ try {
     });
 } catch (err) {
     console.log('internal error', err);
+    io.emit('INTERNAL_ERROR', 'Internal server error, try later');
 }
 
 
