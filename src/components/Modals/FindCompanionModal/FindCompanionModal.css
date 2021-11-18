@@ -22,3 +22,17 @@
     font-weight: normal;
     color: white;
 }
+
+.findModalWindow_Status {
+    font-family: 'Aeonik';
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.pendingText {
+    color: #2ca053;
+}
+
+.rejectText {
+    color: #d63232;
+}

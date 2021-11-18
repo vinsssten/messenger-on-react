@@ -1,0 +1,217 @@
+.chatModal_Background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    /* min-height: 650px; */
+    background-color: #5d5d5daf;
+    backdrop-filter: blur(3px);
+    z-index: 999;
+}
+
+.chatModal_MainContainer {
+    display: grid; 
+    grid-template-columns: 1fr 0.2fr; 
+    grid-template-rows: 0.3fr 2fr 0.25fr; 
+    grid-template-areas: 
+        "header reject-button-zone"
+        "messageZone messageZone"
+        "inputMessage sendButtonZone"; 
+    gap: 0px 0px;
+    min-width: 30%;
+    width: 30vw;
+    height: 80vh;
+    background-color: #ffffffca;
+    border-radius: 10px;
+    backdrop-filter: blur(1px);
+}
+
+
+.chatModal_Header {
+    grid-area: header; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;    
+    width: 100%;
+    background-color: #ffffffdc;
+    font-family: 'Aeonik';
+    font-size: 32px;
+    border-radius: 10px 0 0 0 ;
+    font-weight: bold;
+}
+
+.chatModal-RejectButtonContainer {
+    grid-area: reject-button-zone; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;    
+    width: 100%;
+    background-color: #fdfdfd;
+    border-radius: 0 10px 0 0;
+    user-select: none;
+}
+
+.chatModal-RejectButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    font-size: 28px;
+    background-color: #eb7474;
+    border-radius: 10px;
+    transition: 50ms ;
+}
+.chatModal-RejectButton:hover {
+    border-radius: 0px;
+    background-color: #d16767;
+}
+.chatModal-RejectButton:active {
+    background-color: #a04040;
+    transform: scale(0.95);
+}
+
+.chatModal_MessageList {
+    grid-area: messageZone; 
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+}
+
+.chatModal_MessageList-MessageLine { 
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.rightSideMessage { 
+    justify-content: flex-end;
+}
+
+.leftSideMessage {
+    justify-content: flex-start;
+}
+
+.messageList_MessageCard {
+    max-width: 40%;
+    margin-left: 10px;
+    margin: 0px 10px;
+    animation: messageBorn 250ms linear forwards;
+}
+@keyframes messageBorn {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    
+    100% {
+        transform: scale(1);
+    }
+}
+
+.messageCard_MessageInfo {
+    font-family: 'Aeonik';
+    color: gray;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.messageList_CompanionMessage {
+    max-width: 100%;
+    background-color: #aa67aace;
+    font-family: 'Aeonik';
+    color: white;
+    font-size: 18px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 2px dashed #844084c6;
+}
+
+.messageList_ClientMessage {
+    max-width: 100%;
+    background-color: white;
+    font-family: 'Aeonik';
+    color: #000000;
+    font-size: 18px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 2px dashed #dadada;
+}
+
+.chatModal_InputMessageContainer { 
+    grid-area: inputMessage; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 7px;
+    background-color: #ffffffdc;
+    border-radius: 0 0 0 10px;
+}
+
+.chatModal_MessageInput {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #c2c2c2;
+    font-family: 'Aeonik';
+    font-size: 16px;
+    overflow-y: visible;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+}
+
+.chatModal_SendButtonContainer { 
+    grid-area: sendButtonZone; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 7px;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffffef;
+    border-radius: 0 0 10px 0;
+}
+
+.chatModal_SendButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 40px;
+    background-color: #c2c2c2;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rejected {
+    background-color: #ffffffd2;
+    color: black;
+    font-family: 'Aeonik';
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@media (max-width: 1300px) {
+    .chatModal_MainContainer{
+        width: 40%;
+    }
+}
+
+@media (max-width: 800px) {
+    .chatModal_MainContainer{
+        width: 65%;
+    }
+}

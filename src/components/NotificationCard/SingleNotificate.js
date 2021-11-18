@@ -1,7 +1,7 @@
 import ButtonsContainer from './ButtonsContainer';
 import './NotificationCard.css'
 
-function SingleNotification ({notificationData}) {
+function SingleNotification ({notificationData, index}) {
     const {sender, nickname} = notificationData;
 
     return (
@@ -13,7 +13,9 @@ function SingleNotification ({notificationData}) {
             <h2 className="notificationCard_Notification-Text">
                 Wants to start a chat with you, start a chat?
             </h2>
-            <ButtonsContainer />
+            <ButtonsContainer
+                sender={sender}
+                index={index} />
         </div>
     )
 }

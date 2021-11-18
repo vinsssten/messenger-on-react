@@ -5,14 +5,14 @@ import ModalWindowPortal from '../ModalWindowPortal';
 import ButtonModal from '../ButtonModal';
 import { useSelector } from 'react-redux';
 
-function FindCompanionModal ({sessionId, isActive, setIsActive}) {
-    const [curIdInput, setCurIdInput] = useState(null);
-    const {socket, isSocketConnected} = useSelector(state => state.socket)
+function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
+    const [curIdInput, setCurIdInput] = useState('');
+    const {socket} = useSelector(state => state.socket)
+    const {waitConfirmationChat, messageConfirmation} = useSelector(state => state.app)
 
     function inputHandle (event) {
         const value = event.target.value;
         if (Number(value) || value === '') {
-            console.log(Number(value))
             setCurIdInput(value)
         }
     }
@@ -23,11 +23,11 @@ function FindCompanionModal ({sessionId, isActive, setIsActive}) {
         }
     }
 
-    if (isActive) {
+    if (findModalActive) {
         return (
             <ModalWindowPortal
-                isActive={isActive}
-                setIsActive={setIsActive}>
+                findModalActive={findModalActive}
+                toggleFindModal={toggleFindModal}>
                     <h1 className='findModalWindow_MainText mainFont'>Find your friend about Id</h1>
                     <h3 className='findModalWindow_AddittionalText mainFont'>Find out from your interlocutor his ID, and specify it below</h3>
                     <input
@@ -38,10 +38,21 @@ function FindCompanionModal ({sessionId, isActive, setIsActive}) {
                         value={curIdInput}
                         maxLength={9}
                     />
+                    
+                    {waitConfirmationChat ?
+                    <h1 className="findModalWindow_Status pendingText">Waiting for the user's response...</h1>
+                    : 
                     <ButtonModal
-                        action={() => sendRequestToDialogue()}>
+                        action={sendRequestToDialogue}>
                         Send request to dialogue
                     </ButtonModal>
+                    }
+
+                    {messageConfirmation ?
+                        <h1 className="findModalWindow_Status rejectText">{messageConfirmation}</h1>
+                    :
+                    <></>
+                    }
             </ModalWindowPortal>
         )
     } else {

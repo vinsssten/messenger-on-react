@@ -14,14 +14,10 @@ function SocketDispatcher (props) {
     //TODO: Придумать как починить костыль явной передачи dispatch в функцию подключения к серверу
     useEffect(() => {
         if (!isSocketConnected) {
-            dispatch(socketConnect('Anonymous', dispatch))
+            socketConnect('Anonymous', dispatch)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSocketConnected])
-
-    useEffect(() => {
-        document.title = "MoR: MainPage";
-    }, [])
 
     if (!isSocketConnected) {
         return (
