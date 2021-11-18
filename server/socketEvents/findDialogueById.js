@@ -21,7 +21,8 @@ function findDialogueById (searchedId, waitConfirmationUsers, parameters) {
     }
 
     if (!isUserFound) {
-        socket.emit('waitConfirmationReject', '');
+        console.log('user not found')
+        socket.emit('waitConfirmationReject', 'User with this ID not found');
     }
 }
 

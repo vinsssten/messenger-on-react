@@ -5,6 +5,7 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
         const socket = io('ws://localhost:8080').connect();
 
         socket.on('connect', () => {
+            console.log('socket connect')
             socket.emit('setNickname', name);
 
             dispatch({type: "SET_SOCKET", socket: socket, isSocketConnected: socket.connected});
@@ -14,17 +15,20 @@ const socketConnect = (name = 'Anonymous', dispatch) => {
             })
 
             socket.on('disconnect', () => {
+                console.log('socket disconnect', socket);
+                socket.disconnect();
                 dispatch({type: 'SOCKET_DISCONNECT', socket: socket});
             })
 
             socket.on('waitConfirmation', () => {
                 dispatch({type: 'SET_WAITCONFIRMATION'});
 
-                socket.on('waitConfirmationReject', (message) => {
-                    dispatch({type: "DELETE_WAITCONFIRMATION", messageConfirmation: message});
-                })
             })
-
+            
+            socket.on('waitConfirmationReject', (message) => {
+                dispatch({type: "DELETE_WAITCONFIRMATION", messageConfirmation: message});
+            })
+            
             socket.on('chatStart', (data) => {
                 console.log('chatStart', data);
                 dispatch({type: 'CHAT_START', nickname: data.username, sessionId: data.sessionId});

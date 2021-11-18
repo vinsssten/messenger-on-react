@@ -14,8 +14,12 @@ const rejectChat = (senderSocketId, message, activeDialogues, standartParameters
         }
     })
 
-    const receiverSocketId = findIdBySessionId(receiverSessionId, connectedUsersList);
-    io.to(receiverSocketId).emit('rejectChat', message);
+    if (!receiverSessionId) {
+        console.log('user', senderSocketId, 'haven`t active chats')
+    } else {   
+        const receiverSocketId = findIdBySessionId(receiverSessionId, connectedUsersList);
+        io.to(receiverSocketId).emit('rejectChat', message);
+    }
 }
 
 module.exports = rejectChat
