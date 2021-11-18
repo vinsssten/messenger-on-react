@@ -1,6 +1,13 @@
 function findDialogueById (searchedId, waitConfirmationUsers, parameters) {
     const {connectedUsersList, socket, io} = parameters;
+    const senderSessionId = connectedUsersList.get(socket.id).userId;
+    console.log('senderses', senderSessionId)
     let isUserFound = false;
+
+    if (Number(searchedId) === senderSessionId) {
+        socket.emit('waitConfirmationReject', 'You cant send an invitation to yourself');
+        return
+    }
 
     for (let user of connectedUsersList.entries()) {
         //Текущий айди из цикла, предполагаемый айди пользователя
