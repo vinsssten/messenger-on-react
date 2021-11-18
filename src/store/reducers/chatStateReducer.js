@@ -6,7 +6,6 @@ const defaultState = {
     idCompanion: null,
     chatIsActive: false,
     chatIsRejected: false,
-    rejectedMessage: '',
     messageList: [{
         isClientMessage: false,
         textMessage: `This is a system message, chat with the user ${this?.nickname} started!` ,
@@ -19,7 +18,7 @@ const chatStateReducer = (state = defaultState, action) => {
         case 'CHAT_START':
             return {...state, nickname: action.nickname, idCompanion: action.sessionId, chatIsActive: true}
         case 'CHAT_SHUTDOWN':
-            return {...state, nickname: null, idCompanion: null, chatIsActive: false, messageList: defaultState.messageList, chatIsRejected: false, rejectedMessage: ''}
+            return {...state, nickname: null, idCompanion: null, chatIsActive: false, messageList: defaultState.messageList, chatIsRejected: false}
         case 'RECEIVE_MESSAGE':
             return {...state, messageList: [...state.messageList, {
                 isClientMessage: action.isClientMessage,

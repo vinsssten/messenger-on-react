@@ -8,6 +8,7 @@ const discardChat = require("./socketEvents/discardChat");
 const setUserNickname = require('./socketEvents/setUserNickname');
 const redirectMessage = require("./modules/redirectMessage");
 const rejectChat = require("./modules/rejectChat");
+const closeChat = require("./socketEvents/closeChat");
 
 const app = express();
 const httpServer = createServer(app);
@@ -38,7 +39,7 @@ try {
 
         socket.on('discardChat', data => discardChat(data, waitConfirmationUsers, standartParameters));
 
-        socket.on('rejectChat', data => {})
+        socket.on('closeChat', data => closeChat(activeDialogues, standartParameters));
     
         socket.on('sendMessage', data => redirectMessage(data, activeDialogues, standartParameters))
     
