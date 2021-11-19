@@ -1,21 +1,22 @@
-.mainPage_NotificationCardContainer {
-    width: 100%;
-
-}
-
 .mainPage_NotificationCard {
-
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: column;
+    width: 100%;
+    min-height: 300px;
     background-color: #9778a898;
     border-radius: 10px;
     border: #8e56afb6 2px dashed;
+    box-sizing: border-box;
+    overflow-y: hidden;
 }
 
 .notificationCard_Header {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    padding: 5px 0px;
+    height: 50px;
+    box-sizing: border-box;
     font-family: "Aeonik";
     font-weight: bold;
     font-size: 32px;
@@ -28,8 +29,8 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    /* margin-top: 5px; */
-
+    min-height: 250px;
+    max-height: 700px;
     overflow-y: scroll;
 }
 
@@ -108,16 +109,14 @@
 }
 
 @media (max-width: 1100px) {
-    .mainPage_NotificationCardContainer {
-        max-height: 500px;
+    .mainPage_NotificationCard {
+        max-height: 80%;
         height: 100%;
     }
 }
 
 @media (max-width: 800px) {
-    .mainPage_NotificationCardContainer {
-        display: flex;
-        justify-content: center;
+    .mainPage_NotificationCard {
         width: 80%;
         min-height: 300px;
     }
@@ -127,7 +126,8 @@
         max-height: 500px;
         min-height: 300px;
     }
-    .mainPage_NotificationCard {
-        width: 100%;
-    }
+}
+
+@media (max-width: 600px) {
+    
 }

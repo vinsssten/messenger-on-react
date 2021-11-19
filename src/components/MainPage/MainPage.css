@@ -71,7 +71,7 @@
         display: grid; 
         grid-template-columns: 1fr; 
         gap: 10px 0px;
-        grid-template-rows: 0.1fr 200px 1fr 200px; 
+        grid-template-rows: 0.1fr 200px 300px 200px; 
         grid-template-areas: 
         "Header"
         "mainPage_Content"
@@ -82,4 +82,8 @@
     .mainPage_RS {
         
     }
+}
+
+@media (max-width: 600px) {
+    
 }
