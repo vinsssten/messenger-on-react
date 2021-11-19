@@ -1,5 +1,40 @@
 const defaultState = {
-    notificationList: [],
+    notificationList: [
+        // {
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },{
+        //     sender: '11111111',
+        //     nickname: 'vinsssten'
+        // },
+    ],
     findModalActive: false,
     waitConfirmationChat: false,
     messageConfirmation: null,

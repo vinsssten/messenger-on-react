@@ -11,7 +11,6 @@
     grid-template-areas: 
         "Header Header Header"
         "mainPage_LS mainPage_Content mainPage_RS"; 
-    /* overflow-y: hidden; */
 }
 
 .mainPage_Header { 
@@ -27,37 +26,39 @@
     font-size: 78px;
 }
 
-.mainPage_Content {
-    grid-area: mainPage_Content;
+.mainPage_Content, .mainPage_LS, .mainPage_RS {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.mainPage_Content {
+    grid-area: mainPage_Content;
+    padding: 0px 10px;
 }
 
 .mainPage_LS { 
     grid-area: mainPage_LS; 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    padding-left: 10px;
 }
 .mainPage_RS { 
     grid-area: mainPage_RS; 
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    padding-right: 10px;
 }
 
 @media (max-width: 1100px) {
     .mainPage_Container {
         display: grid; 
         grid-template-columns: 1fr 1fr; 
-        grid-template-rows: 0.05fr 0.5fr 0.5fr; 
-        gap: 5px 0px; 
+        grid-template-rows: 0.05fr 0fr 0.95fr;
         grid-template-areas: 
             "Header Header"
             "mainPage_LS mainPage_Content"
             "mainPage_RS mainPage_RS"; 
+    }
+    .mainPage_Content, .mainPage_LS, .mainPage_RS {
+        padding: 0px 10px;
     }
 }
 
@@ -69,7 +70,8 @@
     .mainPage_Container {
         display: grid; 
         grid-template-columns: 1fr; 
-        grid-template-rows: 0.1fr 1fr 1fr 1fr; 
+        gap: 10px 0px;
+        grid-template-rows: 0.1fr 200px 1fr 200px; 
         grid-template-areas: 
         "Header"
         "mainPage_Content"
