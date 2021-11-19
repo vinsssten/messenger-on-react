@@ -6,7 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const plugins = [
     new HtmlWebpackPlugin({
         template: './src/index.html',
-        filename: 'index.html'
+        filename: 'index.html',
+        inject: true,
     }),
     new MiniCssExtractPlugin({
         filename: 'main.[contenthash:5].css'
@@ -36,26 +37,12 @@ module.exports = (argv) => {
                 {
                     test: /\.css$/,
                     use: [
-                        {
-                            loader: MiniCssExtractPlugin.loader,
-                            options: {
-                                publicPath: '',
-                            },
-                        },
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                importLoaders: 1,
-                                modules: devMode ?
-                                '[path][name]__[local]--[hash:base64:5]' :
-                                '[hash:base64]',
-                            }
-                        },
-                        {
-                            test: /\.(png|jpg|svg|otf|ttf)$/,
-                            use: 'file-loader'
-                        }
+                        "style-loader", "css-loader"
                     ]
+                    },
+                {
+                    test: /\.(png|jpg|svg|otf|ttf)$/,
+                    use: 'file-loader'
                 }
             ]
         },
@@ -68,14 +55,15 @@ module.exports = (argv) => {
             ]
         },
         devServer: {
-            contentBase: path.join(__dirname, "dist"),
-            open: true,
+            static: {
+                directory: path.join(__dirname, 'dist'),
+            },
             compress: true,
-            port: 8080, 
-            watchContentBase: true,
-            progress: true,
-            historyApiFallback: true,
-            hot: true,
-        }
+            port: 3000,
+            open: true,
+        },
+        externals: {
+            'react': 'React'
+        },
     }
 }
