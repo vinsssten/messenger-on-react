@@ -41,7 +41,7 @@ module.exports = (argv) => {
                     ]
                     },
                 {
-                    test: /\.(png|jpg|svg|otf|ttf)$/,
+                    test: /\.(png|jpg|svg|otf|ttf|ico)$/,
                     use: 'file-loader'
                 }
             ]
@@ -56,14 +56,15 @@ module.exports = (argv) => {
         },
         devServer: {
             static: {
-                directory: path.join(__dirname, 'dist'),
+                directory: path.join(__dirname, 'build'),
             },
             compress: true,
             port: 3000,
             open: true,
+            
         },
-        externals: {
-            'react': 'React'
-        },
+        // externals: {
+        //     'react': 'React'
+        // },
     }
 }
