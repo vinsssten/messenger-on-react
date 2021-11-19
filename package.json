@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --mode=development",
     "server": "node ./server/index.js",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "prettier": "npx prettier \"./**/*.{js,ts,jsx,tsx,scss,css}\" --write -u"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "dependencies": {
     "mini-css-extract-plugin": "^2.4.5",
     "mongoose": "^6.0.13",
+    "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
