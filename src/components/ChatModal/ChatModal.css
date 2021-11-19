@@ -204,13 +204,7 @@
     font-weight: bold;
 }
 
-@media (max-width: 1300px) {
-    .chatModal_MainContainer{
-        width: 40%;
-    }
-}
-
-@media (max-width: 800px) {
+@media (max-width: 1500px) {
     .chatModal_MainContainer{
         width: 65%;
     }
