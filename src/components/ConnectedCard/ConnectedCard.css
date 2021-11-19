@@ -8,6 +8,8 @@
     background-color: #c6f5f58e;
     border: #41f0f0dc 2px dashed;
     border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .mainPage_SessionID {
@@ -56,4 +58,18 @@
     border: #61b8b8dc 1px dashed;
     background-color: #76e6e6;
     transform: scale(1);
+}
+
+@media (max-width: 1100px) {
+    
+}
+
+@media (max-width: 800px) {
+    .mainPage_HintText {
+        font-size: 18px !important;
+    }
+    .mainPage_ConnectionInfo {
+        height: 200px;
+        width: 80%;
+    }
 }

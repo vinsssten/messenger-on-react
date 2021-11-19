@@ -8,7 +8,7 @@ To start dev-server.
 
 ## npm run build
 
-To make dev-build
+To make production build
 
 ## npm run server
 
