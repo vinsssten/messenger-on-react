@@ -4,6 +4,7 @@
   "description": "",
   "main": "electron/main.js",
   "scripts": {
+    "prebuild": "npx del-cli build",
     "start": "webpack serve --mode=development",
     "server": "node ./server/index.js",
     "build": "webpack --mode=production",
