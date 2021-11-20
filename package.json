@@ -7,6 +7,7 @@
     "start": "webpack serve --mode=development",
     "server": "node ./server/index.js",
     "build": "webpack --mode=production",
+    "build:serve": "npm run build && npx serve -s build",
     "electron": "npm run build && electron .",
     "prettier": "npx prettier \"./**/*.{js,ts,jsx,tsx,scss,css}\" --write -u"
   },
