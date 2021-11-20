@@ -1,0 +1,9 @@
+.titleBar {
+    grid-area: titleBar;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 40px;
+    background-color: black;
+}
