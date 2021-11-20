@@ -1,13 +1,12 @@
-.container {
+/* .container {
     display: grid; 
     grid-auto-columns: 1fr; 
     grid-template-columns: 1fr; 
-    grid-template-rows: 40px 1fr; 
-    gap: 0px 0px; 
+    grid-template-rows: 40px calc(100% - 40px);
     grid-template-areas: 
         "titleBar"
         "mainPage"; 
-}
+} */
 
 body {
     margin: 0px;

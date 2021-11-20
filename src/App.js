@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import './index.css'
 
@@ -7,12 +8,24 @@ import store from "./store/store";
 
 
 function App () {
+    const [isElectronApp, setIsElectronApp] = useState(false);
+
+    // useEffect(() => {
+    //     if (window?.ipc) {
+    //         setIsElectronApp(true);
+    //     }
+    // }, [])
+
     return (
         <Provider store={store}>
-            <div className="container">
-                <TitleBarElectron />
+            {/* <div className="container"> */}
+                {isElectronApp ?
+                    <TitleBarElectron />
+                    :
+                    null
+                }
                 <SocketDispatcher />
-            </div>
+            {/* </div> */}
         </Provider>
     )
 }
