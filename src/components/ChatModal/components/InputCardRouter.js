@@ -1,16 +1,9 @@
-import React from 'react'
-import InputCardChatModal from './InputCardChatModal'
-import InputCardChatRejected from './InputCardChatRejected'
+import React from 'react';
+import InputCardChatModal from './InputCardChatModal';
+import InputCardChatRejected from './InputCardChatRejected';
 
-function InputCardRouter ({isRejected}) {
-    return (
-        <>
-            {isRejected ? 
-                <InputCardChatRejected />
-            :
-                <InputCardChatModal />}
-        </>
-    )
+function InputCardRouter({ isRejected }) {
+    return <>{isRejected ? <InputCardChatRejected /> : <InputCardChatModal />}</>;
 }
 
-export default InputCardRouter
+export default InputCardRouter;

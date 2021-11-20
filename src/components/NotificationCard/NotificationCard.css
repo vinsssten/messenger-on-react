@@ -1,6 +1,6 @@
 .mainPage_NotificationCard {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     width: 100%;
     min-height: 300px;
@@ -17,7 +17,7 @@
     align-items: center;
     height: 50px;
     box-sizing: border-box;
-    font-family: "Aeonik";
+    font-family: 'Aeonik';
     font-weight: bold;
     font-size: 32px;
     color: #270f33;
@@ -52,13 +52,14 @@
         opacity: 0;
         transform: scale(0.2);
     }
-    
+
     100% {
         transform: scale(1);
     }
 }
 
-.notificationCard_Notification-HeaderText, .notificationCard_Notification-Text {
+.notificationCard_Notification-HeaderText,
+.notificationCard_Notification-Text {
     margin: 0px;
     font-family: 'Aeonik';
     font-weight: normal;
@@ -100,7 +101,7 @@
     transform: scale(0.95);
 }
 
-.accept{
+.accept {
     background-color: #00ff00ad;
 }
 
@@ -121,7 +122,7 @@
         min-height: 300px;
     }
 
-    .notificationCard_Content{
+    .notificationCard_Content {
         height: 100%;
         max-height: 500px;
         min-height: 300px;
@@ -129,5 +130,4 @@
 }
 
 @media (max-width: 600px) {
-    
 }

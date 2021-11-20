@@ -1,8 +1,8 @@
-function discardChat (recepientId, waitConfirmationUsers, parameters) {
-    const {connectedUsersList, socket, io} = parameters;
+function discardChat(recepientId, waitConfirmationUsers, parameters) {
+    const { connectedUsersList, socket, io } = parameters;
     let isFound = false;
     let waiterSessionId = null;
-    let waiterSocketId = null
+    let waiterSocketId = null;
 
     for (let waiter of waitConfirmationUsers.entries()) {
         const curId = waiter[1].senderSessionId;

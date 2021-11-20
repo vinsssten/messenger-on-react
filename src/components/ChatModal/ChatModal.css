@@ -14,13 +14,13 @@
 }
 
 .chatModal_MainContainer {
-    display: grid; 
-    grid-template-columns: 1fr 0.2fr; 
-    grid-template-rows: 0.3fr 2fr 0.25fr; 
-    grid-template-areas: 
-        "header reject-button-zone"
-        "messageZone messageZone"
-        "inputMessage sendButtonZone"; 
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    grid-template-rows: 0.3fr 2fr 0.25fr;
+    grid-template-areas:
+        'header reject-button-zone'
+        'messageZone messageZone'
+        'inputMessage sendButtonZone';
     gap: 0px 0px;
     min-width: 30%;
     width: 30vw;
@@ -30,27 +30,26 @@
     backdrop-filter: blur(1px);
 }
 
-
 .chatModal_Header {
-    grid-area: header; 
+    grid-area: header;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;    
+    height: 100%;
     width: 100%;
     background-color: #ffffffdc;
     font-family: 'Aeonik';
     font-size: 32px;
-    border-radius: 10px 0 0 0 ;
+    border-radius: 10px 0 0 0;
     font-weight: bold;
 }
 
 .chatModal-RejectButtonContainer {
-    grid-area: reject-button-zone; 
+    grid-area: reject-button-zone;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;    
+    height: 100%;
     width: 100%;
     background-color: #fdfdfd;
     border-radius: 0 10px 0 0;
@@ -66,7 +65,7 @@
     font-size: 28px;
     background-color: #eb7474;
     border-radius: 10px;
-    transition: 50ms ;
+    transition: 50ms;
 }
 .chatModal-RejectButton:hover {
     border-radius: 0px;
@@ -78,20 +77,20 @@
 }
 
 .chatModal_MessageList {
-    grid-area: messageZone; 
+    grid-area: messageZone;
     display: flex;
     flex-direction: column-reverse;
     overflow-y: scroll;
 }
 
-.chatModal_MessageList-MessageLine { 
+.chatModal_MessageList-MessageLine {
     display: flex;
     align-items: flex-start;
     flex-direction: row;
     padding-bottom: 10px;
 }
 
-.rightSideMessage { 
+.rightSideMessage {
     justify-content: flex-end;
 }
 
@@ -110,7 +109,7 @@
         opacity: 0;
         transform: scale(0.2);
     }
-    
+
     100% {
         transform: scale(1);
     }
@@ -145,8 +144,8 @@
     border: 2px dashed #dadada;
 }
 
-.chatModal_InputMessageContainer { 
-    grid-area: inputMessage; 
+.chatModal_InputMessageContainer {
+    grid-area: inputMessage;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -171,8 +170,8 @@
     border-radius: 5px;
 }
 
-.chatModal_SendButtonContainer { 
-    grid-area: sendButtonZone; 
+.chatModal_SendButtonContainer {
+    grid-area: sendButtonZone;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,7 +204,7 @@
 }
 
 @media (max-width: 1500px) {
-    .chatModal_MainContainer{
+    .chatModal_MainContainer {
         width: 65%;
     }
 }

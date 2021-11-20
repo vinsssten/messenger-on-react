@@ -1,9 +1,9 @@
-const findIdBySessionId  = (sessionId, connectedUsersList) => {
+const findIdBySessionId = (sessionId, connectedUsersList) => {
     let isIdFound = false;
     let foundedId = null;
 
     for (let item of connectedUsersList.entries()) {
-        const beingCheckedId = item[1].userId; 
+        const beingCheckedId = item[1].userId;
 
         if (Number(beingCheckedId) === sessionId) {
             isIdFound = true;
@@ -13,10 +13,10 @@ const findIdBySessionId  = (sessionId, connectedUsersList) => {
     }
 
     if (isIdFound) {
-        return foundedId
+        return foundedId;
     } else {
-        return null
+        return null;
     }
-}
+};
 
-module.exports = findIdBySessionId
+module.exports = findIdBySessionId;

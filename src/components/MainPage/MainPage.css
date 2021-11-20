@@ -2,16 +2,16 @@
     grid-area: mainPage;
     width: 100%;
     height: 100%;
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 0.1fr 1fr; 
-    gap: 5px 0px; 
-    grid-template-areas: 
-        "Header Header Header"
-        "mainPage_LS mainPage_Content mainPage_RS"; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    gap: 5px 0px;
+    grid-template-areas:
+        'Header Header Header'
+        'mainPage_LS mainPage_Content mainPage_RS';
 }
 
-.mainPage_Header { 
+.mainPage_Header {
     grid-area: Header;
     display: flex;
     justify-content: center;
@@ -24,7 +24,9 @@
     font-size: 78px;
 }
 
-.mainPage_Content, .mainPage_LS, .mainPage_RS {
+.mainPage_Content,
+.mainPage_LS,
+.mainPage_RS {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -36,52 +38,52 @@
     padding: 0px 10px;
 }
 
-.mainPage_LS { 
-    grid-area: mainPage_LS; 
+.mainPage_LS {
+    grid-area: mainPage_LS;
     padding-left: 10px;
 }
-.mainPage_RS { 
-    grid-area: mainPage_RS; 
+.mainPage_RS {
+    grid-area: mainPage_RS;
     padding-right: 10px;
 }
 
 @media (max-width: 1100px) {
     .mainPage_Container {
-        display: grid; 
-        grid-template-columns: 1fr 1fr; 
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: 0.05fr 0fr 0.95fr;
-        grid-template-areas: 
-            "Header Header"
-            "mainPage_LS mainPage_Content"
-            "mainPage_RS mainPage_RS"; 
+        grid-template-areas:
+            'Header Header'
+            'mainPage_LS mainPage_Content'
+            'mainPage_RS mainPage_RS';
     }
-    .mainPage_Content, .mainPage_LS, .mainPage_RS {
+    .mainPage_Content,
+    .mainPage_LS,
+    .mainPage_RS {
         padding: 0px 10px;
     }
 }
 
 @media (max-width: 800px) {
     .mainPage_Header {
-        font-size: 60px !important; 
+        font-size: 60px !important;
     }
 
     .mainPage_Container {
-        display: grid; 
-        grid-template-columns: 1fr; 
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 10px 0px;
-        grid-template-rows: 0.1fr 200px 300px 200px; 
-        grid-template-areas: 
-        "Header"
-        "mainPage_Content"
-        "mainPage_RS"
-        "mainPage_LS"; 
+        grid-template-rows: 0.1fr 200px 300px 200px;
+        grid-template-areas:
+            'Header'
+            'mainPage_Content'
+            'mainPage_RS'
+            'mainPage_LS';
     }
 
     .mainPage_RS {
-        
     }
 }
 
 @media (max-width: 600px) {
-    
 }

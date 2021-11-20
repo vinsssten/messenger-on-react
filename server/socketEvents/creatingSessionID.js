@@ -1,17 +1,17 @@
-function creatingSocketID (socket, users) {
+function creatingSocketID(socket, users) {
     const socketId = socket.id;
     const userId = randomID();
 
     users.set(socketId, {
         userId: userId,
-        name: undefined
-    })
+        name: undefined,
+    });
 
-    return userId
+    return userId;
 }
 
-function randomID () {
-    return Math.floor(Math.random() * 1000000000)
+function randomID() {
+    return Math.floor(Math.random() * 1000000000);
 }
 
 module.exports = creatingSocketID;

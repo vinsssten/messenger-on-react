@@ -1,30 +1,30 @@
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import './MainPage.css'
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import './MainPage.css';
 
-import ConnectedCard from '../ConnectedCard/ConnectedCard'
-import FindCompanionModal from '../Modals/FindCompanionModal/FindCompanionModal'
-import NicknameInputCard from '../NicknameInputCard/NicknameInputCard'
-import NotificationCard from '../NotificationCard/NotificationCard'
-import ChatModal from '../ChatModal/ChatModal'
+import ConnectedCard from '../ConnectedCard/ConnectedCard';
+import FindCompanionModal from '../Modals/FindCompanionModal/FindCompanionModal';
+import NicknameInputCard from '../NicknameInputCard/NicknameInputCard';
+import NotificationCard from '../NotificationCard/NotificationCard';
+import ChatModal from '../ChatModal/ChatModal';
 
-function MainPage ({sessionId}) {
-    const {findModalActive} = useSelector(state => state.app)
+function MainPage({ sessionId }) {
+    const { findModalActive } = useSelector(state => state.app);
     const dispatch = useDispatch();
-    
+
     //TODO: Добавить удаление уведомлений и закрытие моадльного окна поиска при старте чата
 
-    function toggleFindModal () {
+    function toggleFindModal() {
         if (findModalActive) {
-            dispatch({type: "CLOSE_FINDMODAL"});
+            dispatch({ type: 'CLOSE_FINDMODAL' });
         } else {
-            dispatch({type: "OPEN_FINDMODAL"});
+            dispatch({ type: 'OPEN_FINDMODAL' });
         }
     }
 
     useEffect(() => {
-        document.title = "MoR: MainPage";
-    }, [])
+        document.title = 'MoR: MainPage';
+    }, []);
 
     return (
         <div className="mainPage_Container">
@@ -33,22 +33,19 @@ function MainPage ({sessionId}) {
                 <NicknameInputCard />
             </div>
             <div className="mainPage_Content">
-                <ConnectedCard
-                    sessionId={sessionId}
-                    toggleFindModal={toggleFindModal}
-                />
+                <ConnectedCard sessionId={sessionId} toggleFindModal={toggleFindModal} />
             </div>
             <div className="mainPage_RS">
                 <NotificationCard />
             </div>
-            <FindCompanionModal 
+            <FindCompanionModal
                 sessionId={sessionId}
                 findModalActive={findModalActive}
                 toggleFindModal={toggleFindModal}
             />
             <ChatModal />
         </div>
-    )
+    );
 }
 
-export default MainPage
+export default MainPage;

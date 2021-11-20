@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 
-function useAuth () {
+function useAuth() {
     const [token, setToken] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false)  //false if fetch ok
+    const [isError, setIsError] = useState(false); //false if fetch ok
 
     useEffect(() => {
         if (!token) {
-            
         }
-    }, [token])
+    }, [token]);
 
-    function successCallback () {
+    function successCallback() {}
 
-    }
-
-    function errorCallback () {
-
-    }
+    function errorCallback() {}
 }

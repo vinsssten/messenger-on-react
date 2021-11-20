@@ -1,3 +1,3 @@
 module.exports = {
-    secret: "PARALLELEPIPED"
-}
+    secret: 'PARALLELEPIPED',
+};

@@ -46,14 +46,14 @@
     transition: 300ms ease-in-out;
     user-select: none;
 }
-.mainPage_MainButton:hover{
+.mainPage_MainButton:hover {
     transition: 200ms forwards ease-in-out;
     background-color: #76e6e6;
     transform: scale(1.03);
     color: white;
     /* transform: scale(1.03); */
 }
-.mainPage_MainButton:active{
+.mainPage_MainButton:active {
     transition: 200ms forwards ease-in-out;
     border: #61b8b8dc 1px dashed;
     background-color: #76e6e6;
@@ -61,7 +61,6 @@
 }
 
 @media (max-width: 1100px) {
-    
 }
 
 @media (max-width: 800px) {

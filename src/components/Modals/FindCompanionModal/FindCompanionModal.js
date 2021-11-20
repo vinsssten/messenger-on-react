@@ -1,25 +1,25 @@
-import { useState } from 'react'
-import './FindCompanionModal.css'
+import { useState } from 'react';
+import './FindCompanionModal.css';
 
 import ModalWindowPortal from '../ModalWindowPortal';
 import ButtonModal from '../ButtonModal';
 import { useSelector } from 'react-redux';
 
-function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
+function FindCompanionModal({ sessionId, findModalActive, toggleFindModal }) {
     const [curIdInput, setCurIdInput] = useState('');
-    const {socket} = useSelector(state => state.socket)
-    const {waitConfirmationChat, messageConfirmation} = useSelector(state => state.app)
+    const { socket } = useSelector(state => state.socket);
+    const { waitConfirmationChat, messageConfirmation } = useSelector(state => state.app);
 
-    function inputHandle (event) {
+    function inputHandle(event) {
         const value = event.target.value;
         if (Number(value) || value === '') {
-            setCurIdInput(value)
+            setCurIdInput(value);
         }
     }
 
-    function sendRequestToDialogue () {
+    function sendRequestToDialogue() {
         if (socket && socket?.connected) {
-            socket.emit('findDialogueById', curIdInput)
+            socket.emit('findDialogueById', curIdInput);
         }
     }
 
@@ -27,37 +27,45 @@ function FindCompanionModal ({sessionId, findModalActive, toggleFindModal}) {
         return (
             <ModalWindowPortal
                 findModalActive={findModalActive}
-                toggleFindModal={toggleFindModal}>
-                    <h1 className='findModalWindow_MainText mainFont'>Find your friend about Id</h1>
-                    <h3 className='findModalWindow_AddittionalText mainFont'>Find out from your interlocutor his ID, and specify it below</h3>
-                    <input
-                        className='findModalWindow_IDInput mainFont'
-                        type='text'
-                        onChange={inputHandle}
-                        placeholder='Input your friend`s ID' 
-                        value={curIdInput}
-                        maxLength={9}
-                    />
-                    
-                    {waitConfirmationChat ?
-                    <h1 className="findModalWindow_Status pendingText">Waiting for the user's response...</h1>
-                    : 
-                    <ButtonModal
-                        action={sendRequestToDialogue}>
+                toggleFindModal={toggleFindModal}
+            >
+                <h1 className="findModalWindow_MainText mainFont">
+                    Find your friend about Id
+                </h1>
+                <h3 className="findModalWindow_AddittionalText mainFont">
+                    Find out from your interlocutor his ID, and specify it below
+                </h3>
+                <input
+                    className="findModalWindow_IDInput mainFont"
+                    type="text"
+                    onChange={inputHandle}
+                    placeholder="Input your friend`s ID"
+                    value={curIdInput}
+                    maxLength={9}
+                />
+
+                {waitConfirmationChat ? (
+                    <h1 className="findModalWindow_Status pendingText">
+                        Waiting for the user's response...
+                    </h1>
+                ) : (
+                    <ButtonModal action={sendRequestToDialogue}>
                         Send request to dialogue
                     </ButtonModal>
-                    }
+                )}
 
-                    {messageConfirmation ?
-                        <h1 className="findModalWindow_Status rejectText">{messageConfirmation}</h1>
-                    :
+                {messageConfirmation ? (
+                    <h1 className="findModalWindow_Status rejectText">
+                        {messageConfirmation}
+                    </h1>
+                ) : (
                     <></>
-                    }
+                )}
             </ModalWindowPortal>
-        )
+        );
     } else {
-        return <></>
+        return <></>;
     }
 }
 
-export default FindCompanionModal
+export default FindCompanionModal;

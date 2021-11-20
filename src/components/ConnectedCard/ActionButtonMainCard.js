@@ -1,13 +1,11 @@
-import './ConnectedCard.css'
+import './ConnectedCard.css';
 
-function ActionButtonMainCard ({action, children}) {
+function ActionButtonMainCard({ action, children }) {
     return (
-        <div 
-            className="mainPage_MainButton"
-            onClick={() => action()}>
+        <div className="mainPage_MainButton" onClick={() => action()}>
             {children}
         </div>
-    )
+    );
 }
 
-export default ActionButtonMainCard
+export default ActionButtonMainCard;

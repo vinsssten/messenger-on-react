@@ -1,33 +1,33 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import '../ChatModal.css'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import '../ChatModal.css';
 
-function RejectChatButton({isRejected}) {
-    const {socket} = useSelector(state => state.socket)
+function RejectChatButton({ isRejected }) {
+    const { socket } = useSelector(state => state.socket);
 
-    function rejectChat () {
+    function rejectChat() {
         if (window.confirm('Are you sure to close chat?')) {
             socket.emit('closeChat');
         } else {
-            return
+            return;
         }
     }
 
     return (
         <div className="chatModal-RejectButtonContainer">
-            {isRejected ?
+            {isRejected ? (
                 <></>
-                :
-                <div 
+            ) : (
+                <div
                     className="chatModal-RejectButton"
                     title="Reject chat"
-                    onClick={rejectChat}>
+                    onClick={rejectChat}
+                >
                     ❌
                 </div>
-                }
-            
+            )}
         </div>
-    )
+    );
 }
 
-export default RejectChatButton
+export default RejectChatButton;

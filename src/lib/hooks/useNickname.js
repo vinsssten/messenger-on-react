@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import validator from "validator";
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import validator from 'validator';
 
-function useNickname () {
+function useNickname() {
     const [nickname, setNickname] = useState('');
     const [nicknameLocalStorage, setNicknameLocalStorage] = useState(null);
     const [isFirstGettingName, setIsFirstGettingName] = useState(true);
     const [isFirstSetName, setIsFirstSetName] = useState(true);
-    const {socket, isSocketConnected} = useSelector(state => state.socket);
-    
+    const { socket, isSocketConnected } = useSelector(state => state.socket);
+
     useEffect(() => {
         if (isFirstGettingName) {
             const nickLS = localStorage.getItem('nickname');
             if (nickLS != null) {
-                setNickname(nickLS)
+                setNickname(nickLS);
                 setNicknameOnServer(nickLS);
             }
-            setIsFirstGettingName(false)
+            setIsFirstGettingName(false);
         }
-    }, [isFirstGettingName])
+    }, [isFirstGettingName]);
 
     useEffect(() => {
         if (socket && isFirstSetName) {
@@ -28,31 +28,31 @@ function useNickname () {
                 setIsFirstSetName(false);
             }
         }
-    }, [isFirstSetName, socket])
+    }, [isFirstSetName, socket]);
 
-    function onChangeNickname (event) {
-        setNickname(event.target.value)
+    function onChangeNickname(event) {
+        setNickname(event.target.value);
     }
 
-    function setLocalStorageValue () {
-        const userParams = {ignore_whitespace:true}
+    function setLocalStorageValue() {
+        const userParams = { ignore_whitespace: true };
         if (!validator.isEmpty(nickname, userParams)) {
             localStorage.setItem('nickname', nickname);
-            setNicknameOnServer(nickname)
+            setNicknameOnServer(nickname);
         }
     }
 
-    function setNicknameOnServer (name) {
+    function setNicknameOnServer(name) {
         try {
             if (isSocketConnected) {
                 socket.emit('setUsername', name);
             }
         } catch (err) {
-            console.log('error while set name', err)
+            console.log('error while set name', err);
         }
     }
 
-    return {nickname, onChangeNickname, nicknameLocalStorage, setLocalStorageValue}
+    return { nickname, onChangeNickname, nicknameLocalStorage, setLocalStorageValue };
 }
 
-export default useNickname
+export default useNickname;

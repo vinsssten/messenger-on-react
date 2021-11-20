@@ -1,5 +1,5 @@
-:root{
-    --modalWidth: 500px
+:root {
+    --modalWidth: 500px;
 }
 
 .modalWindow {
@@ -12,7 +12,7 @@
     margin-top: 10vh;
     padding: 20px 10px 20px 10px;
     width: var(--modalWidth);
-    height:  auto;
+    height: auto;
     background-color: #98e9e9dc;
     z-index: 900;
     animation: modalWindowBorn 100ms linear forwards;

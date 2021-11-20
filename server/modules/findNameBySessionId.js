@@ -3,7 +3,7 @@ const findNameBySessionId = (sessionId, connectedUsersList) => {
     let foundedName = null;
 
     for (let item of connectedUsersList.entries()) {
-        const beingCheckedId = item[1].userId; 
+        const beingCheckedId = item[1].userId;
 
         if (Number(beingCheckedId) === sessionId) {
             isFounded = true;
@@ -13,10 +13,10 @@ const findNameBySessionId = (sessionId, connectedUsersList) => {
     }
 
     if (isFounded) {
-        return foundedName
+        return foundedName;
     } else {
-        return null
+        return null;
     }
-}
+};
 
 module.exports = findNameBySessionId;

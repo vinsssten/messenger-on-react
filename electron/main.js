@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 const createWindow = () => {
@@ -7,11 +7,11 @@ const createWindow = () => {
         height: 900,
         minWidth: 1200,
         minHeight: 700,
-        frame: true
-    })
+        frame: true,
+    });
 
     win.loadFile(path.join(__dirname, '../', 'build', 'index.html'));
-}
+};
 
 app.on('ready', createWindow);
 

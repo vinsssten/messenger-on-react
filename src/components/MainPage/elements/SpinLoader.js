@@ -1,5 +1,5 @@
-import React from 'react'
-import './LoadingStyles.css'
+import React from 'react';
+import './LoadingStyles.css';
 
 function SpinLoader() {
     return (
@@ -20,7 +20,7 @@ function SpinLoader() {
                 <div className="wInnerBall"></div>
             </div>
         </div>
-    )
+    );
 }
 
-export default SpinLoader
+export default SpinLoader;

@@ -1,12 +1,8 @@
-import React from 'react'
-import './TitleBarElectron.css'
+import React from 'react';
+import './TitleBarElectron.css';
 
 function TitleBarElectron() {
-    return (
-        <div className='titleBar'>
-            
-        </div>
-    )
+    return <div className="titleBar"></div>;
 }
 
-export default TitleBarElectron
+export default TitleBarElectron;

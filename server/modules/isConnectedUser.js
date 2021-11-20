@@ -1,11 +1,11 @@
 const isConnectedUser = (socketId, connectedUsersList) => {
     for (let user of connectedUsersList.entries()) {
         if (user[0] === socketId) {
-            return true
+            return true;
         }
     }
 
-    return false
-}
+    return false;
+};
 
 module.exports = isConnectedUser;
