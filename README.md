@@ -1,16 +1,24 @@
-## Messenger on React
+# Messenger on React
 
-An application that allows you to communicate with your friends by connecting by ID
+Course project of the application, thanks to which you can communicate with your friends by connecting by ID.
 
 ## npm start
 
 To start dev-server.
 
+## npm run server
+
+To start back-end.
+
 ## npm run build
 
 To make production build
 
-## npm run server
+## npm run build:serve
 
-To start back-end.
+To serve production build
+
+## npm run electron
+
+Start electron build
 
